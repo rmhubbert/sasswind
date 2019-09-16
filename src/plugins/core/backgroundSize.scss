@@ -1,0 +1,22 @@
+$backgroundSizeModifiers: theme("backgroundSize");
+$backgroundSizeStyles: [];
+@if ($backgroundSizeModifiers) {
+  @each $modifier, $value in $backgroundSizeModifiers {
+    $style: (
+      className: "bg-#{$modifier}",
+      classStyles:
+        [
+        (
+          attribute: background-size,
+          value: #{$value}
+        )
+        ]
+    );
+    $backgroundSizeStyles: append($backgroundSizeStyles, $style);
+  }
+}
+
+$backgroundSize: (
+  name: "backgroundSize",
+  styles: $backgroundSizeStyles
+);

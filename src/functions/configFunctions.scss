@@ -1,0 +1,67 @@
+@function config($targetString, $default: null) {
+    $targetList: str-split($targetString, ".");
+    $next: $defaultConfig;
+    $value: null;
+    @each $target in $targetList {
+        @if (type-of($next) == map) {
+            $next: map-get($next, $target);
+            $value: $next;
+        } @else {
+            $value: $next;
+        }
+    }
+    @if ($value == null) {
+        @return $default;
+    }
+    @return $value;
+}
+
+@function theme($targetString, $default: null) {
+    @return config("theme.#{$targetString}", $default);
+}
+
+@function hasVariant($name, $variant) {
+    $variants: config("variants");
+    @if (map-has-key($variants, $name)) {
+        $variantTypes: map-get($variants, $name);
+        @return index($variantTypes, $variant) != null;
+    }
+    @return false;
+}
+
+@function permittedCorePlugin($plugin) {
+    @return map-has-key($corePlugins, $plugin);
+}
+
+@function important() {
+    @if (config("important") == true) {
+        @return "!important";
+    }
+    @return "";
+}
+
+@function flattenColorPalette($colors) {
+    $flattenedColors: ();
+    @if ($colors) {
+        @each $name, $value in $colors {
+            @if (type-of($value) == map) {
+                @each $innerName, $innerValue in $value {
+                    $flattenedColors: map-merge(
+                        $flattenedColors,
+                        (
+                            "#{$name}-#{$innerName}": $innerValue
+                        )
+                    );
+                }
+            } @else {
+                $flattenedColors: map-merge(
+                    $flattenedColors,
+                    (
+                        $name: $value
+                    )
+                );
+            }
+        }
+    }
+    @return $flattenedColors;
+}

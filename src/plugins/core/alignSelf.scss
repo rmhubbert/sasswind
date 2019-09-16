@@ -1,0 +1,27 @@
+$alignSelfTypes: (
+  "self-auto": "auto",
+  "self-start": "flex-start",
+  "self-end": "flex-end",
+  "self-center": "center",
+  "self-stretch": "stretch"
+);
+
+$alignSelfStyles: [];
+@each $type, $value in $alignSelfTypes {
+  $style: (
+    className: #{$type},
+    classStyles:
+      [
+      (
+        attribute: align-self,
+        value: #{$value}
+      )
+      ]
+  );
+  $alignSelfStyles: append($alignSelfStyles, $style);
+}
+
+$alignSelf: (
+  name: "alignSelf",
+  styles: $alignSelfStyles
+);

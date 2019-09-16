@@ -1,0 +1,28 @@
+{
+  "name": "sasswind",
+  "version": "0.1.0",
+  "description": "Sass port of the Tailwind CSS framework",
+  "keywords": [
+    "Tailwind",
+    "CSS",
+    "Sass"
+  ],
+  "scripts": {
+    "dev": "sass src/sasswind.scss:dist/sasswind.css --no-source-map",
+    "watch": "sass --watch --no-source-map src/sasswind.scss:dist/sasswind.css",
+    "build": "npm run dev"
+  },
+  "author": "RM Hubbert",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "prettier": "^1.18.2",
+    "sass": "^1.22.10"
+  },
+  "bugs": "https://github.com/rmhubbert/sasswind/issues",
+  "homepage": "https://rmhubbert.github.io/sasswind/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rmhubbert/sasswind.git"
+  }
+}

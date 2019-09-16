@@ -1,0 +1,13 @@
+@mixin responsive {
+    @each $screen, $size in config("theme.screens") {
+        $prefix: #{$screen}#{escape(config("separator"))};
+
+        $return: (
+            prefix: $prefix
+        );
+
+        @media only screen and (min-width: $size) {
+            @content ($return);
+        }
+    }
+}

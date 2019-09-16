@@ -1,0 +1,24 @@
+$borderCollapseTypes: (
+  "border-collapse": "collapse",
+  "border-separate": "separate"
+);
+
+$borderCollapseStyles: [];
+@each $type, $value in $borderCollapseTypes {
+  $style: (
+    className: #{$type},
+    classStyles:
+      [
+      (
+        attribute: border-collapse,
+        value: #{$value}
+      )
+      ]
+  );
+  $borderCollapseStyles: append($borderCollapseStyles, $style);
+}
+
+$borderCollapse: (
+  name: "borderCollapse",
+  styles: $borderCollapseStyles
+);

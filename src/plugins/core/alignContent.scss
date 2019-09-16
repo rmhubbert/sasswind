@@ -1,0 +1,27 @@
+$alignContentTypes: (
+  "content-center": "center",
+  "content-start": "flex-start",
+  "content-end": "flex-end",
+  "content-between": "space-between",
+  "content-around": "space-around"
+);
+
+$alignContentStyles: [];
+@each $type, $value in $alignContentTypes {
+  $style: (
+    className: #{$type},
+    classStyles:
+      [
+      (
+        attribute: align-content,
+        value: #{$value}
+      )
+      ]
+  );
+  $alignContentStyles: append($alignContentStyles, $style);
+}
+
+$alignContent: (
+  name: "alignContent",
+  styles: $alignContentStyles
+);

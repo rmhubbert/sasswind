@@ -1,0 +1,27 @@
+$alignItemsTypes: (
+  "items-start": "flex-start",
+  "items-end": "flex-end",
+  "items-center": "center",
+  "items-baseline": "baseline",
+  "items-stretch": "stretch"
+);
+
+$alignItemsStyles: [];
+@each $type, $value in $alignItemsTypes {
+  $style: (
+    className: #{$type},
+    classStyles:
+      [
+      (
+        attribute: align-items,
+        value: #{$value}
+      )
+      ]
+  );
+  $alignItemsStyles: append($alignItemsStyles, $style);
+}
+
+$alignItems: (
+  name: "alignItems",
+  styles: $alignItemsStyles
+);

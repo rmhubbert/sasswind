@@ -1,0 +1,22 @@
+@each $pluginName, $plugin in $corePlugins {
+  $pluginName: map-get($plugin, "name");
+  $pluginStyles: map-get($plugin, "styles");
+
+  @if (permittedCorePlugin($pluginName)) {
+    @include configVariants($pluginName) using ($return) {
+      $pre: map-get($return, "prefix") + escape(config("prefix"));
+      $suf: map-get($return, "suffix");
+
+      @each $style in $pluginStyles {
+        $className: map-get($style, "className");
+        .#{$pre}#{$className}#{$suf} {
+          @each $classStyle in map-get($style, "classStyles") {
+            $attribute: map-get($classStyle, "attribute");
+            $value: map-get($classStyle, "value");
+            #{$attribute}: $value#{important()};
+          }
+        }
+      }
+    }
+  }
+}

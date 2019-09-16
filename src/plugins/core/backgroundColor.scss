@@ -1,0 +1,25 @@
+$backgroundColors: theme("backgroundColor");
+$colors: theme("colors");
+$colors: map-merge($colors, $backgroundColors);
+$flattenedColors: flattenColorPalette($colors);
+$backgroundColorStyles: [];
+@if ($flattenedColors) {
+  @each $modifier, $value in $flattenedColors {
+    $style: (
+      className: "bg-#{$modifier}",
+      classStyles:
+        [
+        (
+          attribute: background-color,
+          value: #{$value}
+        )
+        ]
+    );
+    $backgroundColorStyles: append($backgroundColorStyles, $style);
+  }
+}
+
+$backgroundColor: (
+  name: "backgroundColor",
+  styles: $backgroundColorStyles
+);

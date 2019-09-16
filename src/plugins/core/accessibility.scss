@@ -1,0 +1,83 @@
+$accessibility: (
+    name: "accessibility",
+    styles: [
+        (
+            className: "sr-only",
+            classStyles: [
+                (
+                    attribute: position,
+                    value: absolute
+                ),
+            (
+                attribute: width,
+                value: 1px
+            ),
+            (
+                attribute: height,
+                value: 1px
+            ),
+            (
+                attribute: padding,
+                value: 0
+            ),
+            (
+                attribute: margin,
+                value: -1px
+            ),
+            (
+                attribute: overflow,
+                value: hidden
+            ),
+            (
+                attribute: clip,
+                value: rect(0, 0, 0, 0)
+            ),
+            (
+                attribute: white-space,
+                value: nowrap
+            ),
+            (
+                    attribute: border-width,
+                    value: 0
+                )
+                ]
+        ),
+    (
+            className: "not-sr-only",
+            classStyles: [
+                (
+                    attribute: position,
+                    value: static
+                ),
+            (
+                attribute: width,
+                value: auto
+            ),
+            (
+                attribute: height,
+                value: auto
+            ),
+            (
+                attribute: padding,
+                value: 0
+            ),
+            (
+                attribute: margin,
+                value: 0
+            ),
+            (
+                attribute: overflow,
+                value: visible
+            ),
+            (
+                attribute: clip,
+                value: auto
+            ),
+            (
+                    attribute: white-space,
+                    value: normal
+                )
+                ]
+        )
+        ]
+);

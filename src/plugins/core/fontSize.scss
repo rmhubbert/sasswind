@@ -1,0 +1,22 @@
+$fontSizeModifiers: theme("fontSize");
+$fontSizeStyles: [];
+@if ($fontSizeModifiers) {
+  @each $modifier, $value in $fontSizeModifiers {
+    $style: (
+      className: "text-#{$modifier}",
+      classStyles:
+        [
+        (
+          attribute: font-size,
+          value: #{$value}
+        )
+        ]
+    );
+    $fontSizeStyles: append($fontSizeStyles, $style);
+  }
+}
+
+$fontSize: (
+  name: "fontSize",
+  styles: $fontSizeStyles
+);

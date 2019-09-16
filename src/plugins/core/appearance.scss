@@ -1,0 +1,14 @@
+$appearance: (
+  name: "appearance",
+  styles: [
+    (
+      className: appearance-none,
+      classStyles: [
+        (
+          attribute: appearance,
+          value: none
+        )
+        ]
+    )
+    ]
+);

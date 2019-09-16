@@ -1,0 +1,31 @@
+$displayTypes: (
+  "block": "block",
+  "inline-block": "inline-block",
+  "inline": "inline",
+  "flex": "flex",
+  "inline-flex": "inline-flex",
+  "table": "table",
+  "table-row": "table-row",
+  "table-cell": "table-cell",
+  "hidden": "hidden"
+);
+
+$displayStyles: [];
+@each $type, $value in $displayTypes {
+  $style: (
+    className: #{$type},
+    classStyles:
+      [
+      (
+        attribute: display,
+        value: #{$value}
+      )
+      ]
+  );
+  $displayStyles: append($displayStyles, $style);
+}
+
+$display: (
+  name: "display",
+  styles: $displayStyles
+);

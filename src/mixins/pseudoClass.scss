@@ -1,0 +1,15 @@
+@mixin pseudoClass($type, $parentReturn: null) {
+  $parentPrefix: "";
+  @if ($parentReturn) {
+    $parentPrefix: map-get($parentReturn, "prefix");
+  }
+
+  $prefix: $parentPrefix + #{$type}#{escape(config("separator"))};
+  $suffix: ":#{$type}";
+
+  $return: (
+    prefix: $prefix,
+    suffix: $suffix
+  );
+  @content ($return);
+}
