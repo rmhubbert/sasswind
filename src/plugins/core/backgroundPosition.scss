@@ -1,14 +1,13 @@
 $backgroundPositionModifiers: theme("backgroundPosition");
-$backgroundPositionStyles: [];
+$backgroundPositionStyles: ();
 @if ($backgroundPositionModifiers) {
   @each $modifier, $value in $backgroundPositionModifiers {
     $style: (
-      selector: "bg-#{$modifier}",
-      properties: (
+      "bg-#{$modifier}": (
         background-position: #{$value}
       )
     );
-    $backgroundPositionStyles: append($backgroundPositionStyles, $style);
+    $backgroundPositionStyles: map-merge($backgroundPositionStyles, $style);
   }
 }
 

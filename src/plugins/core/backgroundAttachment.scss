@@ -4,15 +4,14 @@ $backgroundAttachmentTypes: (
   "bg-scroll": "scroll"
 );
 
-$backgroundAttachmentStyles: [];
+$backgroundAttachmentStyles: ();
 @each $type, $value in $backgroundAttachmentTypes {
   $style: (
-    selector: #{$type},
-    properties: (
+    $type: (
       background-attachment: #{$value}
     )
   );
-  $backgroundAttachmentStyles: append($backgroundAttachmentStyles, $style);
+  $backgroundAttachmentStyles: map-merge($backgroundAttachmentStyles, $style);
 }
 
 $backgroundAttachment: (

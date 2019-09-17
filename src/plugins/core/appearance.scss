@@ -1,11 +1,8 @@
 $appearance: (
-  name: "appearance",
-  styles: [
-    (
-      selector: appearance-none,
-      properties: (
-        appearance: none
-      )
+    name: "appearance",
+    styles: (
+        "appearance-none": (
+            appearance: none
+        )
     )
-    ]
 );

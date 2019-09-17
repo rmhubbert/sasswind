@@ -2,16 +2,16 @@ $borderColors: theme("borderColor");
 $colors: theme("colors");
 $colors: map-merge($colors, $borderColors);
 $flattenedColors: flattenColorPalette($colors);
-$borderColorStyles: [];
+
+$borderColorStyles: ();
 @if ($flattenedColors) {
   @each $modifier, $value in $flattenedColors {
     $style: (
-      selector: if($modifier == "default", "border", "border-#{$modifier}"),
-      properties: (
+      if($modifier == "default", "border", "border-#{$modifier}"): (
         border-color: #{$value}
       )
     );
-    $borderColorStyles: append($borderColorStyles, $style);
+    $borderColorStyles: map-merge($borderColorStyles, $style);
   }
 }
 

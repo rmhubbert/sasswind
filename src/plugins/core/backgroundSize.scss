@@ -1,14 +1,14 @@
 $backgroundSizeModifiers: theme("backgroundSize");
-$backgroundSizeStyles: [];
+
+$backgroundSizeStyles: ();
 @if ($backgroundSizeModifiers) {
   @each $modifier, $value in $backgroundSizeModifiers {
     $style: (
-      selector: "bg-#{$modifier}",
-      properties: (
+      "bg-#{$modifier}": (
         background-size: #{$value}
       )
     );
-    $backgroundSizeStyles: append($backgroundSizeStyles, $style);
+    $backgroundSizeStyles: map-merge($backgroundSizeStyles, $style);
   }
 }
 

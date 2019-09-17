@@ -2,16 +2,16 @@ $backgroundColors: theme("backgroundColor");
 $colors: theme("colors");
 $colors: map-merge($colors, $backgroundColors);
 $flattenedColors: flattenColorPalette($colors);
-$backgroundColorStyles: [];
+
+$backgroundColorStyles: ();
 @if ($flattenedColors) {
   @each $modifier, $value in $flattenedColors {
     $style: (
-      selector: "bg-#{$modifier}",
-      properties: (
+      "bg-#{$modifier}": (
         background-color: #{$value}
       )
     );
-    $backgroundColorStyles: append($backgroundColorStyles, $style);
+    $backgroundColorStyles: map-merge($backgroundColorStyles, $style);
   }
 }
 

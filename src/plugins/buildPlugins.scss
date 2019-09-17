@@ -7,10 +7,9 @@
       $pre: map-get($return, "prefix") + escape(config("prefix"));
       $suf: map-get($return, "suffix");
 
-      @each $style in $pluginStyles {
-        $selector: map-get($style, "selector");
+      @each $selector, $properties in $pluginStyles {
         .#{$pre}#{$selector}#{$suf} {
-          @each $property, $value in map-get($style, "properties") {
+          @each $property, $value in $properties {
             #{$property}: $value#{important()};
           }
         }

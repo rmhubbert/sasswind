@@ -6,15 +6,14 @@ $alignSelfTypes: (
   "self-stretch": "stretch"
 );
 
-$alignSelfStyles: [];
+$alignSelfStyles: ();
 @each $type, $value in $alignSelfTypes {
   $style: (
-    selector: #{$type},
-    properties: (
+    $type: (
       align-self: #{$value}
     )
   );
-  $alignSelfStyles: append($alignSelfStyles, $style);
+  $alignSelfStyles: map-merge($alignSelfStyles, $style);
 }
 
 $alignSelf: (

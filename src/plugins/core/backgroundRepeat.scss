@@ -7,15 +7,14 @@ $backgroundRepeatTypes: (
   "bg-repeat-space": "repeat-space"
 );
 
-$backgroundRepeatStyles: [];
+$backgroundRepeatStyles: ();
 @each $type, $value in $backgroundRepeatTypes {
   $style: (
-    selector: #{$type},
-    properties: (
+    $type: (
       background-repeat: #{$value}
     )
   );
-  $backgroundRepeatStyles: append($backgroundRepeatStyles, $style);
+  $backgroundRepeatStyles: map-merge($backgroundRepeatStyles, $style);
 }
 
 $backgroundRepeat: (

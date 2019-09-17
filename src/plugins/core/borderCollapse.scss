@@ -3,15 +3,14 @@ $borderCollapseTypes: (
   "border-separate": "separate"
 );
 
-$borderCollapseStyles: [];
+$borderCollapseStyles: ();
 @each $type, $value in $borderCollapseTypes {
   $style: (
-    selector: #{$type},
-    properties: (
+    $type: (
       border-collapse: #{$value}
     )
   );
-  $borderCollapseStyles: append($borderCollapseStyles, $style);
+  $borderCollapseStyles: map-merge($borderCollapseStyles, $style);
 }
 
 $borderCollapse: (
