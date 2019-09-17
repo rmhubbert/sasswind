@@ -9,14 +9,10 @@ $alignSelfTypes: (
 $alignSelfStyles: [];
 @each $type, $value in $alignSelfTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: align-self,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      align-self: #{$value}
+    )
   );
   $alignSelfStyles: append($alignSelfStyles, $style);
 }

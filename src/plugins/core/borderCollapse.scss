@@ -6,14 +6,10 @@ $borderCollapseTypes: (
 $borderCollapseStyles: [];
 @each $type, $value in $borderCollapseTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: border-collapse,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      border-collapse: #{$value}
+    )
   );
   $borderCollapseStyles: append($borderCollapseStyles, $style);
 }

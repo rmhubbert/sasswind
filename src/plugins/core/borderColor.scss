@@ -6,14 +6,10 @@ $borderColorStyles: [];
 @if ($flattenedColors) {
   @each $modifier, $value in $flattenedColors {
     $style: (
-      className: if($modifier == "default", "border", "border-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-color,
-          value: #{$value}
-        )
-        ]
+      selector: if($modifier == "default", "border", "border-#{$modifier}"),
+      properties: (
+        border-color: #{$value}
+      )
     );
     $borderColorStyles: append($borderColorStyles, $style);
   }

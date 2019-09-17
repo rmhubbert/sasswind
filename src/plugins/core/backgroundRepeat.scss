@@ -10,14 +10,10 @@ $backgroundRepeatTypes: (
 $backgroundRepeatStyles: [];
 @each $type, $value in $backgroundRepeatTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: background-repeat,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      background-repeat: #{$value}
+    )
   );
   $backgroundRepeatStyles: append($backgroundRepeatStyles, $style);
 }

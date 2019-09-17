@@ -7,14 +7,10 @@ $backgroundAttachmentTypes: (
 $backgroundAttachmentStyles: [];
 @each $type, $value in $backgroundAttachmentTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: background-attachment,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      background-attachment: #{$value}
+    )
   );
   $backgroundAttachmentStyles: append($backgroundAttachmentStyles, $style);
 }

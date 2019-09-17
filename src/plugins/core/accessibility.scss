@@ -2,82 +2,31 @@ $accessibility: (
     name: "accessibility",
     styles: [
         (
-            className: "sr-only",
-            classStyles: [
-                (
-                    attribute: position,
-                    value: absolute
-                ),
-            (
-                attribute: width,
-                value: 1px
-            ),
-            (
-                attribute: height,
-                value: 1px
-            ),
-            (
-                attribute: padding,
-                value: 0
-            ),
-            (
-                attribute: margin,
-                value: -1px
-            ),
-            (
-                attribute: overflow,
-                value: hidden
-            ),
-            (
-                attribute: clip,
-                value: rect(0, 0, 0, 0)
-            ),
-            (
-                attribute: white-space,
-                value: nowrap
-            ),
-            (
-                    attribute: border-width,
-                    value: 0
-                )
-                ]
-        ),
-    (
-            className: "not-sr-only",
-            classStyles: [
-                (
-                    attribute: position,
-                    value: static
-                ),
-            (
-                attribute: width,
-                value: auto
-            ),
-            (
-                attribute: height,
-                value: auto
-            ),
-            (
-                attribute: padding,
-                value: 0
-            ),
-            (
-                attribute: margin,
-                value: 0
-            ),
-            (
-                attribute: overflow,
-                value: visible
-            ),
-            (
-                attribute: clip,
-                value: auto
-            ),
-            (
-                    attribute: white-space,
-                    value: normal
-                )
-                ]
+            selector: "sr-only",
+            properties: (
+                position: absolute,
+                width: 1px,
+                height: 1px,
+                padding: 0,
+                margin: -1px,
+                overflow: hidden,
+                clip: rect(0, 0, 0, 0),
+                white-space: nowrap,
+                border-width: 0
+            )
+        )
+        (
+            selector: "not-sr-only",
+            properties: (
+                position: static,
+                width: auto,
+                height: auto,
+                padding: 0,
+                margin: 0,
+                overflow: visible,
+                clip: auto,
+                white-space: normal
+            )
         )
         ]
 );

@@ -13,14 +13,10 @@ $displayTypes: (
 $displayStyles: [];
 @each $type, $value in $displayTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: display,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      display: #{$value}
+    )
   );
   $displayStyles: append($displayStyles, $style);
 }

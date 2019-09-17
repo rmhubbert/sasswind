@@ -9,14 +9,10 @@ $alignContentTypes: (
 $alignContentStyles: [];
 @each $type, $value in $alignContentTypes {
   $style: (
-    className: #{$type},
-    classStyles:
-      [
-      (
-        attribute: align-content,
-        value: #{$value}
-      )
-      ]
+    selector: #{$type},
+    properties: (
+      align-content: #{$value}
+    )
   );
   $alignContentStyles: append($alignContentStyles, $style);
 }

@@ -3,14 +3,10 @@ $backgroundPositionStyles: [];
 @if ($backgroundPositionModifiers) {
   @each $modifier, $value in $backgroundPositionModifiers {
     $style: (
-      className: "bg-#{$modifier}",
-      classStyles:
-        [
-        (
-          attribute: background-position,
-          value: #{$value}
-        )
-        ]
+      selector: "bg-#{$modifier}",
+      properties: (
+        background-position: #{$value}
+      )
     );
     $backgroundPositionStyles: append($backgroundPositionStyles, $style);
   }

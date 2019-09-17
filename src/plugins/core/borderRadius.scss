@@ -3,134 +3,86 @@ $borderRadiusStyles: [];
 @if ($borderRadiusModifiers) {
   @each $modifier, $value in $borderRadiusModifiers {
     $style: (
-      className: if($modifier == "default", "rounded", "rounded-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-radius,
-          value: #{$value}
-        )
-        ]
+      selector: if($modifier == "default", "rounded", "rounded-#{$modifier}"),
+      properties: (
+        border-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-tl", "rounded-tl-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-top-left-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-top-left-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-tr", "rounded-tr-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-top-right-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-top-right-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-bl", "rounded-bl-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-bottom-left-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-bottom-left-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-br", "rounded-br-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-bottom-right-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-bottom-right-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-t", "rounded-t-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-top-left-radius,
-          value: #{$value}
-        ),
-      (
-          attribute: border-top-right-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-top-left-radius: #{$value},
+        border-top-right-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-r", "rounded-r-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-top-right-radius,
-          value: #{$value}
-        ),
-      (
-          attribute: border-bottom-right-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-top-right-radius: #{$value},
+        border-bottom-right-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-b", "rounded-b-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-bottom-left-radius,
-          value: #{$value}
-        ),
-      (
-          attribute: border-bottom-right-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-bottom-left-radius: #{$value},
+        border-bottom-right-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
-      className:
+      selector:
         if($modifier == "default", "rounded-l", "rounded-l-#{$modifier}"),
-      classStyles:
-        [
-        (
-          attribute: border-top-left-radius,
-          value: #{$value}
-        ),
-      (
-          attribute: border-bottom-left-radius,
-          value: #{$value}
-        )
-        ]
+      properties: (
+        border-top-left-radius: #{$value},
+        border-bottom-left-radius: #{$value}
+      )
     );
     $borderRadiusStyles: append($borderRadiusStyles, $style);
   }

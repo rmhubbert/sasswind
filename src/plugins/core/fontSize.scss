@@ -3,14 +3,10 @@ $fontSizeStyles: [];
 @if ($fontSizeModifiers) {
   @each $modifier, $value in $fontSizeModifiers {
     $style: (
-      className: "text-#{$modifier}",
-      classStyles:
-        [
-        (
-          attribute: font-size,
-          value: #{$value}
-        )
-        ]
+      selector: "text-#{$modifier}",
+      properties: (
+        font-size: #{$value}
+      )
     );
     $fontSizeStyles: append($fontSizeStyles, $style);
   }

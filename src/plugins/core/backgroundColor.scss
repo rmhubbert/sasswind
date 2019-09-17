@@ -6,14 +6,10 @@ $backgroundColorStyles: [];
 @if ($flattenedColors) {
   @each $modifier, $value in $flattenedColors {
     $style: (
-      className: "bg-#{$modifier}",
-      classStyles:
-        [
-        (
-          attribute: background-color,
-          value: #{$value}
-        )
-        ]
+      selector: "bg-#{$modifier}",
+      properties: (
+        background-color: #{$value}
+      )
     );
     $backgroundColorStyles: append($backgroundColorStyles, $style);
   }

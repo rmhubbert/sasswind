@@ -3,14 +3,10 @@ $backgroundSizeStyles: [];
 @if ($backgroundSizeModifiers) {
   @each $modifier, $value in $backgroundSizeModifiers {
     $style: (
-      className: "bg-#{$modifier}",
-      classStyles:
-        [
-        (
-          attribute: background-size,
-          value: #{$value}
-        )
-        ]
+      selector: "bg-#{$modifier}",
+      properties: (
+        background-size: #{$value}
+      )
     );
     $backgroundSizeStyles: append($backgroundSizeStyles, $style);
   }
