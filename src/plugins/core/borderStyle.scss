@@ -1,0 +1,22 @@
+$borderStyleTypes: (
+  "border-solid": "solid",
+  "border-dashed": "dashed",
+  "border-dotted": "dotted",
+  "border-double": "double",
+  "border-none": "none"
+);
+
+$borderStyleStyles: ();
+@each $type, $value in $borderStyleTypes {
+  $style: (
+    $type: (
+      border-style: #{$value}
+    )
+  );
+  $borderStyleStyles: map-merge($borderStyleStyles, $style);
+}
+
+$borderStyle: (
+  name: "borderStyle",
+  styles: $borderStyleStyles
+);
