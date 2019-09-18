@@ -1,0 +1,21 @@
+$fills: theme("fill");
+$colors: theme("colors");
+$colors: map-merge($colors, $fills);
+$flattenedColors: flattenColorPalette($colors);
+
+$fillStyles: ();
+@if ($flattenedColors) {
+  @each $modifier, $value in $flattenedColors {
+    $style: (
+      "fill-#{$modifier}": (
+        fill: #{$value}
+      )
+    );
+    $fillStyles: map-merge($fillStyles, $style);
+  }
+}
+
+$fill: (
+  name: "fill",
+  styles: $fillStyles
+);

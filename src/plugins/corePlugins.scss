@@ -17,6 +17,7 @@
 @import "./core/container";
 @import "./core/cursor";
 @import "./core/display";
+@import "./core/fill";
 @import "./core/fontSize";
 
 $corePlugins: (
@@ -37,9 +38,10 @@ $corePlugins: (
         //borderWidth: $borderWidth,
         //boxShadow: $boxShadow,
         //container: $container,
-        cursor: $cursor,
-    //display: $display,
-        //fontSize: $fontSize
+        //cursor: $cursor,
+        //display: $display,
+        fill: $fill,
+    //fontSize: $fontSize
 );
 
 @import "./buildPlugins";
