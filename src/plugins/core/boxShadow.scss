@@ -1,0 +1,18 @@
+$boxShadowModifiers: theme("boxShadow");
+
+$boxShadowStyles: ();
+@if ($boxShadowModifiers) {
+  @each $modifier, $value in $boxShadowModifiers {
+    $style: (
+      if($modifier == "default", "shadow", "shadow-#{$modifier}"): (
+        box-shadow: #{$value}
+      )
+    );
+    $boxShadowStyles: map-merge($boxShadowStyles, $style);
+  }
+}
+
+$boxShadow: (
+  name: "boxShadow",
+  styles: $boxShadowStyles
+);
