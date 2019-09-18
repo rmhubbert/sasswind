@@ -20,6 +20,7 @@
 @import "./core/fill";
 @import "./core/flex";
 @import "./core/flexDirection";
+@import "./core/flexGrow";
 @import "./core/fontSize";
 
 $corePlugins: (
@@ -44,7 +45,8 @@ $corePlugins: (
         //display: $display,
         //fill: $fill,
         //flex: $flex,
-        flexDirection: $flexDirection,
+        //flexDirection: $flexDirection,
+        flexGrow: $flexGrow,
     //fontSize: $fontSize
 );
 

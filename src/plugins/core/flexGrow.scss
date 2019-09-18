@@ -1,0 +1,18 @@
+$flexGrowModifiers: theme("flexGrow");
+
+$flexGrowStyles: ();
+@if ($flexGrowModifiers) {
+  @each $modifier, $value in $flexGrowModifiers {
+    $style: (
+      if($modifier == "default", "flex-grow", "flex-grow-#{$modifier}"): (
+        flex-grow: #{$value}
+      )
+    );
+    $flexGrowStyles: map-merge($flexGrowStyles, $style);
+  }
+}
+
+$flexGrow: (
+  name: "flexGrow",
+  styles: $flexGrowStyles
+);
