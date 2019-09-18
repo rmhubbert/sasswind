@@ -1,0 +1,18 @@
+$flexShrinkModifiers: theme("flexShrink");
+
+$flexShrinkStyles: ();
+@if ($flexShrinkModifiers) {
+  @each $modifier, $value in $flexShrinkModifiers {
+    $style: (
+      if($modifier == "default", "flex-shrink", "flex-shrink-#{$modifier}"): (
+        flex-shrink: #{$value}
+      )
+    );
+    $flexShrinkStyles: map-merge($flexShrinkStyles, $style);
+  }
+}
+
+$flexShrink: (
+  name: "flexShrink",
+  styles: $flexShrinkStyles
+);
