@@ -22,6 +22,8 @@
 @import "./core/flexDirection";
 @import "./core/flexGrow";
 @import "./core/flexShrink";
+@import "./core/flexWrap";
+@import "./core/float";
 @import "./core/fontSize";
 
 $corePlugins: (
@@ -48,7 +50,9 @@ $corePlugins: (
         //flex: $flex,
         //flexDirection: $flexDirection,
         //flexGrow: $flexGrow,
-        flexShrink: $flexShrink,
+        //flexShrink: $flexShrink,
+        //flexWrap: $flexWrap,
+        float: $float,
     //fontSize: $fontSize
 );
 
