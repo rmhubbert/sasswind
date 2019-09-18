@@ -11,25 +11,33 @@
 @import "./core/borderCollapse";
 @import "./core/borderColor";
 @import "./core/borderRadius";
+@import "./core/borderStyle";
+@import "./core/borderWidth";
+@import "./core/boxShadow";
+@import "./core/container";
 @import "./core/display";
 @import "./core/fontSize";
 
 $corePlugins: (
-    accessibility: $accessibility,
-    alignContent: $alignContent,
-    alignItems: $alignItems,
-    alignSelf: $alignSelf,
-    appearance: $appearance,
-    backgroundAttachment: $backgroundAttachment,
-    backgroundColor: $backgroundColor,
-    backgroundPosition: $backgroundPosition,
-    backgroundRepeat: $backgroundRepeat,
-    backgroundSize: $backgroundSize,
-    borderCollapse: $borderCollapse,
-    borderColor: $borderColor,
-    borderRadius: $borderRadius,
-    display: $display,
-    fontSize: $fontSize
+    //accessibility: $accessibility,
+        //alignContent: $alignContent,
+        //alignItems: $alignItems,
+        //alignSelf: $alignSelf,
+        //appearance: $appearance,
+        //backgroundAttachment: $backgroundAttachment,
+        //backgroundColor: $backgroundColor,
+        //backgroundPosition: $backgroundPosition,
+        //backgroundRepeat: $backgroundRepeat,
+        //backgroundSize: $backgroundSize,
+        //borderCollapse: $borderCollapse,
+        //borderColor: $borderColor,
+        //borderRadius: $borderRadius,
+        //borderStyle: $borderStyle,
+        //borderWidth: $borderWidth,
+        //boxShadow: $boxShadow,
+        container: $container,
+    //display: $display,
+        //fontSize: $fontSize
 );
 
 @import "./buildPlugins";

@@ -1,0 +1,62 @@
+$containerCenter: theme("container.center");
+$containerPadding: theme("container.padding");
+$containerBreakpoints: map-keys(theme("screens"));
+
+$containerStyles: [];
+
+$style: (
+    container: (
+        width: 100%
+    )
+);
+
+@if ($containerCenter) {
+    $style: map-merge(
+        $style,
+        (
+            container:
+                map-merge(
+                    map-get($style, "container"),
+                    (
+                        margin-left: auto,
+                        margin-right: auto
+                    )
+                )
+        )
+    );
+}
+
+@if ($containerPadding) {
+    $style: map-merge(
+        $style,
+        (
+            container:
+                map-merge(
+                    map-get($style, "container"),
+                    (
+                        padding-left: #{$containerPadding},
+                        padding-right: #{$containerPadding}
+                    )
+                )
+        )
+    );
+}
+
+$containerStyles: append($containerStyles, $style);
+
+@each $breakpoint in $containerBreakpoints {
+    $min: breakpointMin($breakpoint);
+    $style: (
+        container: (
+            max-width: unquote($min)
+        ),
+        breakpoint: $min
+    );
+    $containerStyles: append($containerStyles, $style);
+}
+
+$container: (
+    name: "container",
+    styles: $containerStyles,
+    breakpoints: true
+);

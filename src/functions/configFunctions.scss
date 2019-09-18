@@ -65,3 +65,18 @@
     }
     @return $flattenedColors;
 }
+
+@function breakpointMin($breakpointName) {
+    $breakpoints: theme("screens");
+    @if ($breakpoints) {
+        @if (map-has-key($breakpoints, $breakpointName)) {
+            $breakpoint: map-get($breakpoints, $breakpointName);
+            @if (type-of($breakpoint) == string) {
+                @return $breakpoint;
+            }
+        } @else {
+            @error "Breakpoint does not exist";
+        }
+    }
+    @return null;
+}
