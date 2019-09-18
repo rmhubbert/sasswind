@@ -1,0 +1,18 @@
+$flexModifiers: theme("flex");
+
+$flexStyles: ();
+@if ($flexModifiers) {
+  @each $modifier, $value in $flexModifiers {
+    $style: (
+      "flex-#{$modifier}": (
+        flex: #{$value}
+      )
+    );
+    $flexStyles: map-merge($flexStyles, $style);
+  }
+}
+
+$flex: (
+  name: "flex",
+  styles: $flexStyles
+);
