@@ -62,8 +62,17 @@ $defaultConfig: (
             "none": "none"
         ),
         container: (
-            center: true,
-            padding: "2rem"
+            center: false,
+            padding: false
+        ),
+        cursor: (
+            "auto": "auto",
+            "default": "default",
+            "pointer": "pointer",
+            "wait": "wait",
+            "text": "text",
+            "move": "move",
+            "not-allowed": "not-allowed"
         ),
         fontSize: (
             "xs": "0.75rem",

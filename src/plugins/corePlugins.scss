@@ -15,6 +15,7 @@
 @import "./core/borderWidth";
 @import "./core/boxShadow";
 @import "./core/container";
+@import "./core/cursor";
 @import "./core/display";
 @import "./core/fontSize";
 
@@ -35,7 +36,8 @@ $corePlugins: (
         //borderStyle: $borderStyle,
         //borderWidth: $borderWidth,
         //boxShadow: $boxShadow,
-        container: $container,
+        //container: $container,
+        cursor: $cursor,
     //display: $display,
         //fontSize: $fontSize
 );

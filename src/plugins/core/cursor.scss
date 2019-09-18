@@ -1,0 +1,18 @@
+$cursorModifiers: theme("cursor");
+
+$cursorStyles: ();
+@if ($cursorModifiers) {
+  @each $modifier, $value in $cursorModifiers {
+    $style: (
+      "cursor-#{$modifier}": (
+        cursor: #{$value}
+      )
+    );
+    $cursorStyles: map-merge($cursorStyles, $style);
+  }
+}
+
+$cursor: (
+  name: "cursor",
+  styles: $cursorStyles
+);
