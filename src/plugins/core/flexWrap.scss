@@ -1,14 +1,14 @@
 $flexWrap: (
-    name: "flexWrap",
-    styles: (
-        "flex-wrap": (
-            flex-wrap: wrap
-        ),
-        "flex-wrap-reverse": (
-            flex-wrap: wrap-reverse
-        ),
-        "flex-no-wrap": (
-            flex-wrap: nowrap
-        )
+  name: "flexWrap",
+  styles: (
+    "flex-wrap": (
+      flex-wrap: wrap
+    ),
+    "flex-wrap-reverse": (
+      flex-wrap: wrap-reverse
+    ),
+    "flex-no-wrap": (
+      flex-wrap: nowrap
     )
+  )
 );
