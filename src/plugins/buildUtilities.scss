@@ -33,13 +33,12 @@ $responsiveUtilities: [];
 }
 
 @include responsive using ($return) {
-  $pre: map-get($return, "prefix") + escape(config("prefix"));
-
   @each $plugin in $responsiveUtilities {
     $pluginName: map-get($plugin, "name");
     $pluginStyles: map-get($plugin, "styles");
 
     @each $style in $pluginStyles {
+      $pre: map-get($return, "prefix") + escape(config("prefix"));
       @each $selector, $properties in $style {
         .#{$pre}#{$selector} {
           @each $property, $value in $properties {
