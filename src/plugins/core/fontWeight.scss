@@ -1,0 +1,20 @@
+$fontWeightModifiers: theme("fontWeight");
+
+$fontWeightStyles: [];
+@if ($fontWeightModifiers) {
+  @each $modifier, $value in $fontWeightModifiers {
+    $style: (
+      "font-#{$modifier}": (
+        font-weight: #{$value}
+      )
+    );
+    $fontWeightStyles: append($fontWeightStyles, $style);
+  }
+}
+
+$fontWeight: (
+  name: "fontWeight",
+  styles: $fontWeightStyles
+);
+
+$utilities: addUtilities($fontWeight);

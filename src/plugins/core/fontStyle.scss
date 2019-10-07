@@ -1,0 +1,26 @@
+$fontStyleStyles: [];
+
+$fontStyleStyles: append(
+  $fontStyleStyles,
+  (
+    "italic": (
+      font-style: italic
+    )
+  )
+);
+
+$fontStyleStyles: append(
+  $fontStyleStyles,
+  (
+    "non-italic": (
+      font-style: normal
+    )
+  )
+);
+
+$fontStyle: (
+  name: "fontStyle",
+  styles: $fontStyleStyles
+);
+
+$utilities: addUtilities($fontStyle);
