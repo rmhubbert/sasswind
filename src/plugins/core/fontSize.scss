@@ -1,6 +1,6 @@
 $fontSizeModifiers: theme("fontSize");
 
-$fontSizeStyles: ();
+$fontSizeStyles: [];
 @if ($fontSizeModifiers) {
   @each $modifier, $value in $fontSizeModifiers {
     $style: (
@@ -8,7 +8,7 @@ $fontSizeStyles: ();
         font-size: #{$value}
       )
     );
-    $fontSizeStyles: map-merge($fontSizeStyles, $style);
+    $fontSizeStyles: append($fontSizeStyles, $style);
   }
 }
 

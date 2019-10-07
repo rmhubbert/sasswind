@@ -1,19 +1,44 @@
-$float: (
-  name: "float",
-  styles: (
+$floatStyles: [];
+
+$floatStyles: append(
+  $floatStyles,
+  (
     "float-right": (
       float: right
-    ),
+    )
+  )
+);
+
+$floatStyles: append(
+  $floatStyles,
+  (
     "float-left": (
       float: left
-    ),
+    )
+  )
+);
+
+$floatStyles: append(
+  $floatStyles,
+  (
     "float-none": (
       float: none
-    ),
+    )
+  )
+);
+
+$floatStyles: append(
+  $floatStyles,
+  (
     "clearfix:after": (
       content: "",
       display: table,
       clear: both
     )
   )
+);
+
+$float: (
+  name: "float",
+  styles: $floatStyles
 );

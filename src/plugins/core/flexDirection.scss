@@ -1,17 +1,21 @@
+$flexDirectionTypes: (
+  "flex-row": "row",
+  "flex-row-reverse": "row-reverse",
+  "flex-col": "column",
+  "flex-col-reverse": "column-reverse"
+);
+
+$flexDirectionStyles: [];
+@each $type, $value in $flexDirectionTypes {
+  $style: (
+    $type: (
+      flex-direction: #{$value}
+    )
+  );
+  $flexDirectionStyles: append($flexDirectionStyles, $style);
+}
+
 $flexDirection: (
   name: "flexDirection",
-  styles: (
-    "flex-row": (
-      flex-direction: row
-    ),
-    "flex-row-reverse": (
-      flex-direction: row-reverse
-    ),
-    "flex-col": (
-      flex-direction: column
-    ),
-    "flex-col-reverse": (
-      flex-direction: column-reverse
-    )
-  )
+  styles: $flexDirectionStyles
 );

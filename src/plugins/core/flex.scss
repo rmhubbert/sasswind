@@ -1,6 +1,6 @@
 $flexModifiers: theme("flex");
 
-$flexStyles: ();
+$flexStyles: [];
 @if ($flexModifiers) {
   @each $modifier, $value in $flexModifiers {
     $style: (
@@ -8,7 +8,7 @@ $flexStyles: ();
         flex: #{$value}
       )
     );
-    $flexStyles: map-merge($flexStyles, $style);
+    $flexStyles: append($flexStyles, $style);
   }
 }
 

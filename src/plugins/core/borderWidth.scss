@@ -1,6 +1,6 @@
 $borderWidthModifiers: theme("borderWidth");
 
-$borderWidthStyles: ();
+$borderWidthStyles: [];
 @if ($borderWidthModifiers) {
   @each $modifier, $value in $borderWidthModifiers {
     $style: (
@@ -8,35 +8,35 @@ $borderWidthStyles: ();
         border-width: #{$value}
       )
     );
-    $borderWidthStyles: map-merge($borderWidthStyles, $style);
+    $borderWidthStyles: append($borderWidthStyles, $style);
 
     $style: (
       if($modifier == "default", "border-t", "border-t-#{$modifier}"): (
         border-top-width: #{$value}
       )
     );
-    $borderWidthStyles: map-merge($borderWidthStyles, $style);
+    $borderWidthStyles: append($borderWidthStyles, $style);
 
     $style: (
       if($modifier == "default", "border-b", "border-b-#{$modifier}"): (
         border-bottom-width: #{$value}
       )
     );
-    $borderWidthStyles: map-merge($borderWidthStyles, $style);
+    $borderWidthStyles: append($borderWidthStyles, $style);
 
     $style: (
       if($modifier == "default", "border-r", "border-r-#{$modifier}"): (
         border-right-width: #{$value}
       )
     );
-    $borderWidthStyles: map-merge($borderWidthStyles, $style);
+    $borderWidthStyles: append($borderWidthStyles, $style);
 
     $style: (
       if($modifier == "default", "border-l", "border-l-#{$modifier}"): (
         border-left-width: #{$value}
       )
     );
-    $borderWidthStyles: map-merge($borderWidthStyles, $style);
+    $borderWidthStyles: append($borderWidthStyles, $style);
   }
 }
 

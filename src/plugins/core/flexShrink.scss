@@ -1,6 +1,6 @@
 $flexShrinkModifiers: theme("flexShrink");
 
-$flexShrinkStyles: ();
+$flexShrinkStyles: [];
 @if ($flexShrinkModifiers) {
   @each $modifier, $value in $flexShrinkModifiers {
     $style: (
@@ -8,7 +8,7 @@ $flexShrinkStyles: ();
         flex-shrink: #{$value}
       )
     );
-    $flexShrinkStyles: map-merge($flexShrinkStyles, $style);
+    $flexShrinkStyles: append($flexShrinkStyles, $style);
   }
 }
 

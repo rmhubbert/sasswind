@@ -1,6 +1,6 @@
 $flexGrowModifiers: theme("flexGrow");
 
-$flexGrowStyles: ();
+$flexGrowStyles: [];
 @if ($flexGrowModifiers) {
   @each $modifier, $value in $flexGrowModifiers {
     $style: (
@@ -8,7 +8,7 @@ $flexGrowStyles: ();
         flex-grow: #{$value}
       )
     );
-    $flexGrowStyles: map-merge($flexGrowStyles, $style);
+    $flexGrowStyles: append($flexGrowStyles, $style);
   }
 }
 

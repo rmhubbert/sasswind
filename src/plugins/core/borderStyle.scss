@@ -6,14 +6,14 @@ $borderStyleTypes: (
   "border-none": "none"
 );
 
-$borderStyleStyles: ();
+$borderStyleStyles: [];
 @each $type, $value in $borderStyleTypes {
   $style: (
     $type: (
       border-style: #{$value}
     )
   );
-  $borderStyleStyles: map-merge($borderStyleStyles, $style);
+  $borderStyleStyles: append($borderStyleStyles, $style);
 }
 
 $borderStyle: (

@@ -6,14 +6,14 @@ $alignItemsTypes: (
   "items-stretch": "stretch"
 );
 
-$alignItemsStyles: ();
+$alignItemsStyles: [];
 @each $type, $value in $alignItemsTypes {
   $style: (
     $type: (
       align-items: #{$value}
     )
   );
-  $alignItemsStyles: map-merge($alignItemsStyles, $style);
+  $alignItemsStyles: append($alignItemsStyles, $style);
 }
 
 $alignItems: (

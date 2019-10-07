@@ -1,6 +1,6 @@
 $boxShadowModifiers: theme("boxShadow");
 
-$boxShadowStyles: ();
+$boxShadowStyles: [];
 @if ($boxShadowModifiers) {
   @each $modifier, $value in $boxShadowModifiers {
     $style: (
@@ -8,7 +8,7 @@ $boxShadowStyles: ();
         box-shadow: #{$value}
       )
     );
-    $boxShadowStyles: map-merge($boxShadowStyles, $style);
+    $boxShadowStyles: append($boxShadowStyles, $style);
   }
 }
 

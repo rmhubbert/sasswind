@@ -10,14 +10,14 @@ $displayTypes: (
   "hidden": "hidden"
 );
 
-$displayStyles: ();
+$displayStyles: [];
 @each $type, $value in $displayTypes {
   $style: (
     $type: (
       display: #{$value}
     )
   );
-  $displayStyles: map-merge($displayStyles, $style);
+  $displayStyles: append($displayStyles, $style);
 }
 
 $display: (

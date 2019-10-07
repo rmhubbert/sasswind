@@ -1,6 +1,8 @@
-$accessibility: (
-  name: "accessibility",
-  styles: (
+$accessibilityStyles: [];
+
+$accessibilityStyles: append(
+  $accessibilityStyles,
+  (
     "sr-only": (
       position: absolute,
       width: 1px,
@@ -11,7 +13,13 @@ $accessibility: (
       clip: rect(0, 0, 0, 0),
       white-space: nowrap,
       border-width: 0
-    ),
+    )
+  )
+);
+
+$accessibilityStyles: append(
+  $accessibilityStyles,
+  (
     "not-sr-only": (
       position: static,
       width: auto,
@@ -23,4 +31,9 @@ $accessibility: (
       white-space: normal
     )
   )
+);
+
+$accessibility: (
+  name: "accessibility",
+  styles: $accessibilityStyles
 );

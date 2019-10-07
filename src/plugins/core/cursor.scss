@@ -1,6 +1,6 @@
 $cursorModifiers: theme("cursor");
 
-$cursorStyles: ();
+$cursorStyles: [];
 @if ($cursorModifiers) {
   @each $modifier, $value in $cursorModifiers {
     $style: (
@@ -8,7 +8,7 @@ $cursorStyles: ();
         cursor: #{$value}
       )
     );
-    $cursorStyles: map-merge($cursorStyles, $style);
+    $cursorStyles: append($cursorStyles, $style);
   }
 }
 

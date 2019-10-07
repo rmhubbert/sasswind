@@ -1,14 +1,20 @@
+$flexWrapTypes: (
+  "flex-wrap": "wrap",
+  "flex-wrap-reverse": "wrap-reverse",
+  "flex-no-wrap": "nowrap"
+);
+
+$flexWrapStyles: [];
+@each $type, $value in $flexWrapTypes {
+  $style: (
+    $type: (
+      flex-wrap: #{$value}
+    )
+  );
+  $flexWrapStyles: append($flexWrapStyles, $style);
+}
+
 $flexWrap: (
   name: "flexWrap",
-  styles: (
-    "flex-wrap": (
-      flex-wrap: wrap
-    ),
-    "flex-wrap-reverse": (
-      flex-wrap: wrap-reverse
-    ),
-    "flex-no-wrap": (
-      flex-wrap: nowrap
-    )
-  )
+  styles: $flexWrapStyles
 );

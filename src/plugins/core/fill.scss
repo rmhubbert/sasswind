@@ -3,7 +3,7 @@ $colors: theme("colors");
 $colors: map-merge($colors, $fills);
 $flattenedColors: flattenColorPalette($colors);
 
-$fillStyles: ();
+$fillStyles: [];
 @if ($flattenedColors) {
   @each $modifier, $value in $flattenedColors {
     $style: (
@@ -11,7 +11,7 @@ $fillStyles: ();
         fill: #{$value}
       )
     );
-    $fillStyles: map-merge($fillStyles, $style);
+    $fillStyles: append($fillStyles, $style);
   }
 }
 

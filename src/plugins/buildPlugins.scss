@@ -23,10 +23,12 @@
         $pre: map-get($return, "prefix") + escape(config("prefix"));
         $suf: map-get($return, "suffix");
 
-        @each $selector, $properties in $pluginStyles {
-          .#{$pre}#{$selector}#{$suf} {
-            @each $property, $value in $properties {
-              #{$property}: $value#{important()};
+        @each $style in $pluginStyles {
+          @each $selector, $properties in $style {
+            .#{$pre}#{$selector}#{$suf} {
+              @each $property, $value in $properties {
+                #{$property}: $value#{important()};
+              }
             }
           }
         }

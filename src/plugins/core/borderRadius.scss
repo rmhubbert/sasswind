@@ -1,6 +1,6 @@
 $borderRadiusModifiers: theme("borderRadius");
 
-$borderRadiusStyles: ();
+$borderRadiusStyles: [];
 @if ($borderRadiusModifiers) {
   @each $modifier, $value in $borderRadiusModifiers {
     $style: (
@@ -8,35 +8,35 @@ $borderRadiusStyles: ();
         border-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-tl", "rounded-tl-#{$modifier}"): (
         border-top-left-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-tr", "rounded-tr-#{$modifier}"): (
         border-top-right-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-bl", "rounded-bl-#{$modifier}"): (
         border-bottom-left-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-br", "rounded-br-#{$modifier}"): (
         border-bottom-right-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-t", "rounded-t-#{$modifier}"): (
@@ -44,7 +44,7 @@ $borderRadiusStyles: ();
         border-top-right-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-r", "rounded-r-#{$modifier}"): (
@@ -52,7 +52,7 @@ $borderRadiusStyles: ();
         border-bottom-right-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-b", "rounded-b-#{$modifier}"): (
@@ -60,7 +60,7 @@ $borderRadiusStyles: ();
         border-bottom-right-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
 
     $style: (
       if($modifier == "default", "rounded-l", "rounded-l-#{$modifier}"): (
@@ -68,7 +68,7 @@ $borderRadiusStyles: ();
         border-bottom-left-radius: #{$value}
       )
     );
-    $borderRadiusStyles: map-merge($borderRadiusStyles, $style);
+    $borderRadiusStyles: append($borderRadiusStyles, $style);
   }
 }
 

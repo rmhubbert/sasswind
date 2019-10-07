@@ -6,14 +6,14 @@ $alignContentTypes: (
   "content-around": "space-around"
 );
 
-$alignContentStyles: ();
+$alignContentStyles: [];
 @each $type, $value in $alignContentTypes {
   $style: (
     $type: (
       align-content: #{$value}
     )
   );
-  $alignContentStyles: map-merge($alignContentStyles, $style);
+  $alignContentStyles: append($alignContentStyles, $style);
 }
 
 $alignContent: (
