@@ -1,0 +1,21 @@
+$fontFamilyModifiers: theme("fontFamily");
+
+$fontFamilyStyles: [];
+@if ($fontFamilyModifiers) {
+  @each $modifier, $value in $fontFamilyModifiers {
+    $fonts: join($value, [], "comma", false);
+    $style: (
+      "font-#{$modifier}": (
+        font-family: #{$fonts}
+      )
+    );
+    $fontFamilyStyles: append($fontFamilyStyles, $style);
+  }
+}
+
+$fontFamily: (
+  name: "fontFamily",
+  styles: $fontFamilyStyles
+);
+
+$utilities: addUtilities($fontFamily);
