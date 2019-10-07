@@ -19,3 +19,5 @@ $flexDirection: (
   name: "flexDirection",
   styles: $flexDirectionStyles
 );
+
+$utilities: addUtilities($flexDirection);

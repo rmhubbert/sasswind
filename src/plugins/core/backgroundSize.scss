@@ -16,3 +16,5 @@ $backgroundSize: (
   name: "backgroundSize",
   styles: $backgroundSizeStyles
 );
+
+$utilities: addUtilities($backgroundSize);

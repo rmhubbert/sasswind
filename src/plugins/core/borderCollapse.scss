@@ -17,3 +17,5 @@ $borderCollapse: (
   name: "borderCollapse",
   styles: $borderCollapseStyles
 );
+
+$utilities: addUtilities($borderCollapse);

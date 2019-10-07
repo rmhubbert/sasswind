@@ -8,3 +8,5 @@ $appearance: (
     )
     ]
 );
+
+$utilities: addUtilities($appearance);

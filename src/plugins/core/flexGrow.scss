@@ -16,3 +16,5 @@ $flexGrow: (
   name: "flexGrow",
   styles: $flexGrowStyles
 );
+
+$utilities: addUtilities($flexGrow);

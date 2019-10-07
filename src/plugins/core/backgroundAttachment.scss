@@ -18,3 +18,5 @@ $backgroundAttachment: (
   name: "backgroundAttachment",
   styles: $backgroundAttachmentStyles
 );
+
+$utilities: addUtilities($backgroundAttachment);

@@ -16,3 +16,5 @@ $cursor: (
   name: "cursor",
   styles: $cursorStyles
 );
+
+$utilities: addUtilities($cursor);

@@ -76,3 +76,5 @@ $borderRadius: (
   name: "borderRadius",
   styles: $borderRadiusStyles
 );
+
+$utilities: addUtilities($borderRadius);

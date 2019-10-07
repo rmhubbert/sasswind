@@ -37,3 +37,5 @@ $accessibility: (
   name: "accessibility",
   styles: $accessibilityStyles
 );
+
+$utilities: addUtilities($accessibility);

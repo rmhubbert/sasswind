@@ -20,3 +20,5 @@ $alignItems: (
   name: "alignItems",
   styles: $alignItemsStyles
 );
+
+$utilities: addUtilities($alignItems);

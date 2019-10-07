@@ -18,3 +18,5 @@ $flexWrap: (
   name: "flexWrap",
   styles: $flexWrapStyles
 );
+
+$utilities: addUtilities($flexWrap);

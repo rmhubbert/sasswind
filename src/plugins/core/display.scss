@@ -24,3 +24,5 @@ $display: (
   name: "display",
   styles: $displayStyles
 );
+
+$utilities: addUtilities($display);

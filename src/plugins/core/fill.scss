@@ -19,3 +19,5 @@ $fill: (
   name: "fill",
   styles: $fillStyles
 );
+
+$utilities: addUtilities($fill);

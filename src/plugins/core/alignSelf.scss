@@ -20,3 +20,5 @@ $alignSelf: (
   name: "alignSelf",
   styles: $alignSelfStyles
 );
+
+$utilities: addUtilities($alignSelf);

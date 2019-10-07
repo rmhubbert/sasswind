@@ -15,3 +15,5 @@ $backgroundPosition: (
   name: "backgroundPosition",
   styles: $backgroundPositionStyles
 );
+
+$utilities: addUtilities($backgroundPosition);

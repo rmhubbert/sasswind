@@ -20,3 +20,5 @@ $borderStyle: (
   name: "borderStyle",
   styles: $borderStyleStyles
 );
+
+$utilities: addUtilities($borderStyle);

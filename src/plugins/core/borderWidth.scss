@@ -44,3 +44,5 @@ $borderWidth: (
   name: "borderWidth",
   styles: $borderWidthStyles
 );
+
+$utilities: addUtilities($borderWidth);

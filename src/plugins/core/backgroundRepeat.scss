@@ -21,3 +21,5 @@ $backgroundRepeat: (
   name: "backgroundRepeat",
   styles: $backgroundRepeatStyles
 );
+
+$utilities: addUtilities($backgroundRepeat);

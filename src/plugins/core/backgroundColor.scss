@@ -19,3 +19,5 @@ $backgroundColor: (
   name: "backgroundColor",
   styles: $backgroundColorStyles
 );
+
+$utilities: addUtilities($backgroundColor);

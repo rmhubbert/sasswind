@@ -42,3 +42,5 @@ $float: (
   name: "float",
   styles: $floatStyles
 );
+
+$utilities: addUtilities($float);

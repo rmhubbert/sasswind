@@ -20,3 +20,5 @@ $alignContent: (
   name: "alignContent",
   styles: $alignContentStyles
 );
+
+$utilities: addUtilities($alignContent);

@@ -16,3 +16,5 @@ $flexShrink: (
   name: "flexShrink",
   styles: $flexShrinkStyles
 );
+
+$utilities: addUtilities($flexShrink);

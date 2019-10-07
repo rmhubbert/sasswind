@@ -16,3 +16,5 @@ $fontSize: (
   name: "fontSize",
   styles: $fontSizeStyles
 );
+
+$utilities: addUtilities($fontSize);

@@ -16,3 +16,5 @@ $boxShadow: (
   name: "boxShadow",
   styles: $boxShadowStyles
 );
+
+$utilities: addUtilities($boxShadow);

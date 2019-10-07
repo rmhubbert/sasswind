@@ -1,30 +1,30 @@
 @mixin configVariants($type) {
-    // Returns an empty map for the non variant elements
-    @content (());
+  // Returns an empty map for the non variant elements
+  //@content (());
 
-    // TODO
-    // Loop through the variants for the $type
-    // to ensure they are added in the correct order
-    //
-    @if (hasVariant($type, "hover")) {
-        @include pseudoClass("hover") using ($return) {
-            @content ($return);
-        }
+  // TODO
+  // Loop through the variants for the $type
+  // to ensure they are added in the correct order
+  //
+  @if (hasVariant($type, "hover")) {
+    @include pseudoClass("hover") using ($return) {
+      @content ($return);
     }
+  }
 
-    @if (hasVariant($type, "responsive")) {
-        @include responsive using ($return) {
-            @content ($return);
+  @if (hasVariant($type, "responsive")) {
+    @include responsive using ($return) {
+      @content ($return);
 
-            // TODO
-            // replicate loop from above but add in
-            // parent return
-            //
-            @if (hasVariant($type, "hover")) {
-                @include pseudoClass("hover", $return) using ($return) {
-                    @content ($return);
-                }
-            }
+      // TODO
+      // replicate loop from above but add in
+      // parent return
+      //
+      @if (hasVariant($type, "hover")) {
+        @include pseudoClass("hover", $return) using ($return) {
+          @content ($return);
         }
+      }
     }
+  }
 }
