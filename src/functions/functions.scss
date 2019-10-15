@@ -42,6 +42,157 @@
   @return $string;
 }
 
-@function addUtilities($plugin) {
-  @return append($utilities, $plugin);
+@function addPlugin($plugin, $sourceMap, $breakpoint: null) {
+  $standard: map-get($sourceMap, "standard");
+  $screens: map-get($sourceMap, "screens");
+
+  @if ($breakpoint) {
+    $screens: map-merge(
+      $screens,
+      (
+        $breakpoint: append(map-get($screens, $breakpoint), $plugin)
+      )
+    );
+  } @else {
+    $standard: append($standard, $plugin);
+    @if (hasVariant(map-get($plugin, "name"), "responsive")) {
+      @each $key, $value in map-get($sourceMap, "screens") {
+        $screens: map-merge(
+          $screens,
+          (
+            $key: append($value, $plugin)
+          )
+        );
+      }
+    }
+  }
+  @return map-merge(
+    (
+      "standard": $standard
+    ),
+    (
+      "screens": $screens
+    )
+  );
+}
+
+@function addComponents($plugin, $breakpoint: null) {
+  @return addPlugin($plugin, $components, $breakpoint);
+}
+
+@function addUtilities($plugin, $breakpoint: null) {
+  @return addPlugin($plugin, $utilities, $breakpoint);
+}
+
+@function config($targetString, $default: null) {
+  $targetList: str-split($targetString, ".");
+  $next: $defaultConfig;
+  $value: null;
+  @each $target in $targetList {
+    @if (type-of($next) == map) {
+      $next: map-get($next, $target);
+      $value: $next;
+    } @else {
+      $value: $next;
+    }
+  }
+  @if ($value == null) {
+    @return $default;
+  }
+  @return $value;
+}
+
+@function theme($targetString, $default: null) {
+  @return config("theme.#{$targetString}", $default);
+}
+
+@function hasVariant($name, $variant) {
+  $variants: config("variants");
+  @if (map-has-key($variants, $name)) {
+    $variantTypes: map-get($variants, $name);
+    @return index($variantTypes, $variant) != null;
+  }
+  @return false;
+}
+
+@function getVariants($name) {
+  $variants: config("variants");
+  @if (map-has-key($variants, $name)) {
+    @return map-get($variants, $name);
+  }
+  @return [];
+}
+
+@function permittedCorePlugin($plugin) {
+  //@return map-has-key($corePlugins, $plugin);
+  @return true;
+}
+
+@function important() {
+  @if (config("important") == true) {
+    @return "!important";
+  }
+  @return "";
+}
+
+@function flattenColorPalette($colors) {
+  $flattenedColors: ();
+  @if ($colors) {
+    @each $name, $value in $colors {
+      @if (type-of($value) == map) {
+        @each $innerName, $innerValue in $value {
+          $flattenedColors: map-merge(
+            $flattenedColors,
+            (
+              "#{$name}-#{$innerName}": $innerValue
+            )
+          );
+        }
+      } @else {
+        $flattenedColors: map-merge(
+          $flattenedColors,
+          (
+            $name: $value
+          )
+        );
+      }
+    }
+  }
+  @return $flattenedColors;
+}
+
+@function breakpointMin($breakpointName) {
+  $breakpoints: theme("screens");
+  @if ($breakpoints) {
+    @if (map-has-key($breakpoints, $breakpointName)) {
+      $breakpoint: map-get($breakpoints, $breakpointName);
+      @if (type-of($breakpoint) == string) {
+        @return $breakpoint;
+      }
+    } @else {
+      @error "Breakpoint does not exist";
+    }
+  }
+  @return null;
+}
+
+@function createPluginMap() {
+  $map: (
+    "standard": []
+  );
+  $screens: ();
+  @each $key, $value in theme("screens") {
+    $screens: map-merge(
+      $screens,
+      (
+        $key: []
+      )
+    );
+  }
+  @return map-merge(
+    $map,
+    (
+      "screens": $screens
+    )
+  );
 }

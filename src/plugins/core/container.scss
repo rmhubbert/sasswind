@@ -5,7 +5,7 @@ $containerBreakpoints: map-keys(theme("screens"));
 $containerStyles: [];
 
 $style: (
-  container: (
+  "container": (
     width: 100%
   )
 );
@@ -14,7 +14,7 @@ $style: (
   $style: map-merge(
     $style,
     (
-      container:
+      "container":
         map-merge(
           map-get($style, "container"),
           (
@@ -30,7 +30,7 @@ $style: (
   $style: map-merge(
     $style,
     (
-      container:
+      "container":
         map-merge(
           map-get($style, "container"),
           (
@@ -44,19 +44,25 @@ $style: (
 
 $containerStyles: append($containerStyles, $style);
 
+$container: (
+  name: "container",
+  styles: $containerStyles
+);
+
+$components: addComponents($container);
+
 @each $breakpoint in $containerBreakpoints {
   $min: breakpointMin($breakpoint);
   $style: (
-    container: (
+    "container": (
       max-width: unquote($min)
-    ),
-    breakpoint: $min
+    )
   );
-  $containerStyles: append($containerStyles, $style);
-}
 
-$container: (
-  name: "container",
-  styles: $containerStyles,
-  breakpoints: true
-);
+  $container: (
+    name: "container",
+    styles: [$style]
+  );
+
+  $components: addComponents($container, $breakpoint);
+}

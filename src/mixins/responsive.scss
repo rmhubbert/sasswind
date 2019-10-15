@@ -1,23 +1,36 @@
-@mixin responsive {
-    @each $screen, $size in config("theme.screens") {
-        $prefix: #{$screen}#{escape(config("separator"))};
+@mixin responsiveOld {
+  @each $screen, $size in config("theme.screens") {
+    $prefix: #{$screen}#{escape(config("separator"))};
 
-        $return: (
-            prefix: $prefix
-        );
+    $return: (
+      prefix: $prefix
+    );
 
-        @media only screen and (min-width: $size) {
-            @content ($return);
-        }
+    @media only screen and (min-width: $size) {
+      @content ($return);
     }
+  }
+}
+
+@mixin responsive($screen) {
+  $prefix: #{$screen}#{escape(config("separator"))};
+  $size: theme("screens.#{$screen}");
+
+  $return: (
+    prefix: $prefix
+  );
+
+  @media only screen and (min-width: $size) {
+    @content ($return);
+  }
 }
 
 @mixin responsiveOnly($size: null) {
-    @if ($size) {
-        @media only screen and (min-width: $size) {
-            @content;
-        }
-    } @else {
-        @content;
+  @if ($size) {
+    @media only screen and (min-width: $size) {
+      @content;
     }
+  } @else {
+    @content;
+  }
 }

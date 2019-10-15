@@ -1,0 +1,70 @@
+@mixin renderPlugins($plugins) {
+  $standard: map-get($plugins, "standard");
+
+  @each $plugin in $standard {
+    $pluginName: map-get($plugin, "name");
+    $pluginStyles: map-get($plugin, "styles");
+
+    @if (permittedCorePlugin($pluginName)) {
+      @each $style in $pluginStyles {
+        @each $selector, $properties in $style {
+          .#{$selector} {
+            @each $property, $value in $properties {
+              #{$property}: $value#{important()};
+            }
+          }
+          @each $variant in getVariants($pluginName) {
+            @if ($variant != "responsive") {
+              $pre: $variant +
+                escape(config("separator")) +
+                escape(config("prefix"));
+              .#{$pre}#{$selector}:#{$variant} {
+                @each $property, $value in $properties {
+                  #{$property}: $value#{important()};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  $screens: map-get($plugins, "screens");
+
+  @each $key, $value in $screens {
+    @include responsive($key) using ($return) {
+      @each $plugin in $value {
+        $pluginName: map-get($plugin, "name");
+        $pluginStyles: map-get($plugin, "styles");
+
+        @if (permittedCorePlugin($pluginName)) {
+          @each $style in $pluginStyles {
+            $pre: map-get($return, "prefix") + escape(config("prefix"));
+            @each $selector, $properties in $style {
+              .#{$pre}#{$selector} {
+                @each $property, $value in $properties {
+                  #{$property}: $value#{important()};
+                }
+              }
+
+              @each $variant in getVariants($pluginName) {
+                @if ($variant != "responsive") {
+                  $pre: map-get($return, "prefix") +
+                    $variant +
+                    escape(config("separator")) +
+                    escape(config("prefix"));
+                  .#{$pre}#{$selector}:#{$variant} {
+                    @each $property, $value in $properties {
+                      #{$property}: $value#{important()};
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
