@@ -1,18 +1,5 @@
-@charset 'utf-8';
+@import "base";
 
-@import "./mixins/pseudoClass";
-@import "./mixins/responsive";
-@import "./mixins/renderPlugins";
-@import "./mixins/configVariants";
-@import "./configs/defaultConfig";
-@import "./functions/functions";
+@import "components";
 
-$components: createPluginMap();
-$utilities: createPluginMap();
-
-@import "./plugins/corePlugins";
-
-@include renderPlugins($components);
-@include renderPlugins($utilities);
-
-//@import "./plugins/buildUtilities";
+@import "utilities";
