@@ -11,3 +11,5 @@ $components: createPluginMap();
 $utilities: createPluginMap();
 
 @import "./plugins/corePlugins";
+
+@import "./plugins/core/css/preflight";
