@@ -1,0 +1,20 @@
+$objectPositionModifiers: theme("objectPosition");
+
+$objectPositionStyles: [];
+@if ($objectPositionModifiers) {
+  @each $modifier, $value in $objectPositionModifiers {
+    $style: (
+      "object-#{$modifier}": (
+        object-position: #{$value}
+      )
+    );
+    $objectPositionStyles: append($objectPositionStyles, $style);
+  }
+}
+
+$objectPosition: (
+  name: "objectPosition",
+  styles: $objectPositionStyles
+);
+
+$utilities: addUtilities($objectPosition);
