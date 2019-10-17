@@ -1,0 +1,20 @@
+$letterSpacingModifiers: theme("letterSpacing");
+
+$letterSpacingStyles: [];
+@if ($letterSpacingModifiers) {
+  @each $modifier, $value in $letterSpacingModifiers {
+    $style: (
+      "tracking-#{$modifier}": (
+        letter-spacing: #{$value}
+      )
+    );
+    $letterSpacingStyles: append($letterSpacingStyles, $style);
+  }
+}
+
+$letterSpacing: (
+  name: "letterSpacing",
+  styles: $letterSpacingStyles
+);
+
+$utilities: addUtilities($letterSpacing);
