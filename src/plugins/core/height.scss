@@ -1,0 +1,22 @@
+$heights: theme("height");
+$spacing: theme("spacing");
+$heights: map-merge($spacing, $heights);
+
+$heightStyles: [];
+@if ($heights) {
+  @each $modifier, $value in $heights {
+    $style: (
+      "h-#{$modifier}": (
+        height: #{$value}
+      )
+    );
+    $heightStyles: append($heightStyles, $style);
+  }
+}
+
+$height: (
+  name: "height",
+  styles: $heightStyles
+);
+
+$utilities: addUtilities($height);
