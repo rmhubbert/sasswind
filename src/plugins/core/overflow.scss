@@ -1,0 +1,134 @@
+$overflowStyles: [];
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-auto": (
+      overflow: auto
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-hidden": (
+      overflow: hidden
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-visible": (
+      overflow: visible
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-scroll": (
+      overflow: scroll
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-x-auto": (
+      overflow-x: auto
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-y-auto": (
+      overflow-y: auto
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-x-hidden": (
+      overflow-x: hidden
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-y-hidden": (
+      overflow-y: hidden
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-x-visible": (
+      overflow-x: visible
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-y-visible": (
+      overflow-y: visible
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-x-scroll": (
+      overflow-x: scroll
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "overflow-y-scroll": (
+      overflow-y: scroll
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "scrolling-touch": (
+      -webkit-overflow-scrolling: touch
+    )
+  )
+);
+
+$overflowStyles: append(
+  $overflowStyles,
+  (
+    "scrolling-auto": (
+      -webkit-overflow-scrolling: auto
+    )
+  )
+);
+
+$overflow: (
+  name: "overflow",
+  styles: $overflowStyles
+);
+
+$utilities: addUtilities($overflow);
