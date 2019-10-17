@@ -1,0 +1,21 @@
+$visibilityTypes: (
+  "visible": "visible",
+  "invisible": "hidden"
+);
+
+$visibilityStyles: [];
+@each $type, $value in $visibilityTypes {
+  $style: (
+    $type: (
+      visibility: #{$value}
+    )
+  );
+  $visibilityStyles: append($visibilityStyles, $style);
+}
+
+$visibility: (
+  name: "visibility",
+  styles: $visibilityStyles
+);
+
+$utilities: addUtilities($visibility);
