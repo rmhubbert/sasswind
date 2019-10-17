@@ -1,0 +1,20 @@
+$lineHeightModifiers: theme("lineHeight");
+
+$lineHeightStyles: [];
+@if ($lineHeightModifiers) {
+  @each $modifier, $value in $lineHeightModifiers {
+    $style: (
+      "leading-#{$modifier}": (
+        line-height: #{$value}
+      )
+    );
+    $lineHeightStyles: append($lineHeightStyles, $style);
+  }
+}
+
+$lineHeight: (
+  name: "lineHeight",
+  styles: $lineHeightStyles
+);
+
+$utilities: addUtilities($lineHeight);
