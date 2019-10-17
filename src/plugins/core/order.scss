@@ -1,0 +1,20 @@
+$orderModifiers: theme("order");
+
+$orderStyles: [];
+@if ($orderModifiers) {
+  @each $modifier, $value in $orderModifiers {
+    $style: (
+      "order-#{$modifier}": (
+        order: #{$value}
+      )
+    );
+    $orderStyles: append($orderStyles, $style);
+  }
+}
+
+$order: (
+  name: "order",
+  styles: $orderStyles
+);
+
+$utilities: addUtilities($order);
