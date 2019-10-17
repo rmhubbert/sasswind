@@ -1,0 +1,149 @@
+$margins: theme("margin");
+$spacing: theme("spacing");
+$margins: map-merge($spacing, $margins);
+
+$marginStyles: [];
+@if ($margins) {
+  @each $modifier, $value in $margins {
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "m-#{$modifier}": (
+          margin: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "my-#{$modifier}": (
+          margin-top: #{$value},
+          margin-bottom: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "mx-#{$modifier}": (
+          margin-right: #{$value},
+          margin-left: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "mt-#{$modifier}": (
+          margin-top: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "mr-#{$modifier}": (
+          margin-right: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "mb-#{$modifier}": (
+          margin-bottom: #{$value}
+        )
+      )
+    );
+
+    $marginStyles: append(
+      $marginStyles,
+      (
+        "ml-#{$modifier}": (
+          margin-left: #{$value}
+        )
+      )
+    );
+  }
+
+  @each $modifier, $value in $spacing {
+    @if ($modifier != "0") {
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-m-#{$modifier}": (
+            margin: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-my-#{$modifier}": (
+            margin-top: -#{$value},
+            margin-bottom: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-mx-#{$modifier}": (
+            margin-right: -#{$value},
+            margin-left: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-mt-#{$modifier}": (
+            margin-top: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-mr-#{$modifier}": (
+            margin-right: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-mb-#{$modifier}": (
+            margin-bottom: -#{$value}
+          )
+        )
+      );
+
+      $marginStyles: append(
+        $marginStyles,
+        (
+          "-ml-#{$modifier}": (
+            margin-left: -#{$value}
+          )
+        )
+      );
+    }
+  }
+}
+
+$margin: (
+  name: "margin",
+  styles: $marginStyles
+);
+
+$utilities: addUtilities($margin);
