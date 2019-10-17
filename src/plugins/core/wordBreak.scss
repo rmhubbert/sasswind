@@ -1,0 +1,47 @@
+$wordBreakStyles: [];
+
+$wordBreakStyles: append(
+  $wordBreakStyles,
+  (
+    "break-normal": (
+      overflow-wrap: normal,
+      word-break: normal
+    )
+  )
+);
+
+$wordBreakStyles: append(
+  $wordBreakStyles,
+  (
+    "break-words": (
+      overflow-wrap: break-word
+    )
+  )
+);
+
+$wordBreakStyles: append(
+  $wordBreakStyles,
+  (
+    "break-all": (
+      word-break: break-all
+    )
+  )
+);
+
+$wordBreakStyles: append(
+  $wordBreakStyles,
+  (
+    "truncate": (
+      overflow: hidden,
+      text-overflow: ellipsis,
+      white-space: no-wrap
+    )
+  )
+);
+
+$wordBreak: (
+  name: "wordBreak",
+  styles: $wordBreakStyles
+);
+
+$utilities: addUtilities($wordBreak);
