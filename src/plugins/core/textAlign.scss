@@ -1,0 +1,23 @@
+$textAlignTypes: (
+  "text-left": "left",
+  "text-center": "center",
+  "text-right": "right",
+  "text-justify": "justify"
+);
+
+$textAlignStyles: [];
+@each $type, $value in $textAlignTypes {
+  $style: (
+    $type: (
+      text-align: #{$value}
+    )
+  );
+  $textAlignStyles: append($textAlignStyles, $style);
+}
+
+$textAlign: (
+  name: "textAlign",
+  styles: $textAlignStyles
+);
+
+$utilities: addUtilities($textAlign);
