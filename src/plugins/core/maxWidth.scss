@@ -1,0 +1,20 @@
+$maxWidthModifiers: theme("maxWidth");
+
+$maxWidthStyles: [];
+@if ($maxWidthModifiers) {
+  @each $modifier, $value in $maxWidthModifiers {
+    $style: (
+      "max-w-#{$modifier}": (
+        max-width: #{$value}
+      )
+    );
+    $maxWidthStyles: append($maxWidthStyles, $style);
+  }
+}
+
+$maxWidth: (
+  name: "maxWidth",
+  styles: $maxWidthStyles
+);
+
+$utilities: addUtilities($maxWidth);
