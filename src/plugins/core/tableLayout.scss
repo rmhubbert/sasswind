@@ -1,0 +1,21 @@
+$tableLayoutTypes: (
+  "table-auto": "auto",
+  "table-fixed": "fixed"
+);
+
+$tableLayoutStyles: [];
+@each $type, $value in $tableLayoutTypes {
+  $style: (
+    $type: (
+      table-layout: #{$value}
+    )
+  );
+  $tableLayoutStyles: append($tableLayoutStyles, $style);
+}
+
+$tableLayout: (
+  name: "tableLayout",
+  styles: $tableLayoutStyles
+);
+
+$utilities: addUtilities($tableLayout);
