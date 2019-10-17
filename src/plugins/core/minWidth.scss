@@ -1,0 +1,20 @@
+$minWidthModifiers: theme("minWidth");
+
+$minWidthStyles: [];
+@if ($minWidthModifiers) {
+  @each $modifier, $value in $minWidthModifiers {
+    $style: (
+      "min-w-#{$modifier}": (
+        min-width: #{$value}
+      )
+    );
+    $minWidthStyles: append($minWidthStyles, $style);
+  }
+}
+
+$minWidth: (
+  name: "minWidth",
+  styles: $minWidthStyles
+);
+
+$utilities: addUtilities($minWidth);
