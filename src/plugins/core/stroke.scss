@@ -1,0 +1,23 @@
+$strokeColors: theme("stroke");
+$colors: theme("colors");
+$colors: map-merge($colors, $strokeColors);
+$flattenedColors: flattenColorPalette($colors);
+
+$strokeStyles: [];
+@if ($flattenedColors) {
+  @each $modifier, $value in $flattenedColors {
+    $style: (
+      "stroke-#{$modifier}": (
+        stroke: #{$value}
+      )
+    );
+    $strokeStyles: append($strokeStyles, $style);
+  }
+}
+
+$stroke: (
+  name: "stroke",
+  styles: $strokeStyles
+);
+
+$utilities: addUtilities($stroke);

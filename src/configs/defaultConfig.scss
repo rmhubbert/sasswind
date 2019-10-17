@@ -257,7 +257,10 @@ $defaultConfig: (
       "12": "12"
     ),
     padding: (),
-    placeholderColor: ()
+    placeholderColor: (),
+    stroke: (
+      "current": "currentColor"
+    )
   ),
   corePlugins: (),
   variants: (
