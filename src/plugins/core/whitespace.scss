@@ -1,0 +1,24 @@
+$whitespaceTypes: (
+  "whitespace-normal": "normal",
+  "whitespace-no-wrap": "no-wrap",
+  "whitespace-pre": "pre",
+  "whitespace-pre-line": "pre-line",
+  "whitespace-pre-wrap": "pre-wrap"
+);
+
+$whitespaceStyles: [];
+@each $type, $value in $whitespaceTypes {
+  $style: (
+    $type: (
+      white-space: #{$value}
+    )
+  );
+  $whitespaceStyles: append($whitespaceStyles, $style);
+}
+
+$whitespace: (
+  name: "whitespace",
+  styles: $whitespaceStyles
+);
+
+$utilities: addUtilities($whitespace);
