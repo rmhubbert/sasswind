@@ -1,0 +1,23 @@
+$userSelectTypes: (
+  "select-none": "none",
+  "select-text": "text",
+  "select-all": "all",
+  "select-auto": "auto"
+);
+
+$userSelectStyles: [];
+@each $type, $value in $userSelectTypes {
+  $style: (
+    $type: (
+      user-select: #{$value}
+    )
+  );
+  $userSelectStyles: append($userSelectStyles, $style);
+}
+
+$userSelect: (
+  name: "userSelect",
+  styles: $userSelectStyles
+);
+
+$utilities: addUtilities($userSelect);
