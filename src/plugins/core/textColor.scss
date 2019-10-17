@@ -1,0 +1,23 @@
+$textColors: theme("textColor");
+$colors: theme("colors");
+$colors: map-merge($colors, $textColors);
+$flattenedColors: flattenColorPalette($colors);
+
+$textColorStyles: [];
+@if ($flattenedColors) {
+  @each $modifier, $value in $flattenedColors {
+    $style: (
+      "text-#{$modifier}": (
+        color: #{$value}
+      )
+    );
+    $textColorStyles: append($textColorStyles, $style);
+  }
+}
+
+$textColor: (
+  name: "textColor",
+  styles: $textColorStyles
+);
+
+$utilities: addUtilities($textColor);
