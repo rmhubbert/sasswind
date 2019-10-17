@@ -1,0 +1,21 @@
+$pointerEventsTypes: (
+  "pointer-events-none": "none",
+  "pointer-events-auto": "auto"
+);
+
+$pointerEventsStyles: [];
+@each $type, $value in $pointerEventsTypes {
+  $style: (
+    $type: (
+      pointer-events: #{$value}
+    )
+  );
+  $pointerEventsStyles: append($pointerEventsStyles, $style);
+}
+
+$pointerEvents: (
+  name: "pointerEvents",
+  styles: $pointerEventsStyles
+);
+
+$utilities: addUtilities($pointerEvents);
