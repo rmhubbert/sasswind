@@ -1,0 +1,25 @@
+$verticalAlignTypes: (
+  "align-baseline": "baseline",
+  "align-top": "top",
+  "align-middle": "middle",
+  "align-bottom": "bottom",
+  "align-text-top": "text-top",
+  "align-text-bottom": "text-bottom"
+);
+
+$verticalAlignStyles: [];
+@each $type, $value in $verticalAlignTypes {
+  $style: (
+    $type: (
+      vertical-align: #{$value}
+    )
+  );
+  $verticalAlignStyles: append($verticalAlignStyles, $style);
+}
+
+$verticalAlign: (
+  name: "verticalAlign",
+  styles: $verticalAlignStyles
+);
+
+$utilities: addUtilities($verticalAlign);
