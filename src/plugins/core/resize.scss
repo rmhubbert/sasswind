@@ -1,0 +1,23 @@
+$resizeTypes: (
+  "resize-none": "none",
+  "resize-y": "vertical",
+  "resize-x": "horizontal",
+  "resize": "both"
+);
+
+$resizeStyles: [];
+@each $type, $value in $resizeTypes {
+  $style: (
+    $type: (
+      resize: #{$value}
+    )
+  );
+  $resizeStyles: append($resizeStyles, $style);
+}
+
+$resize: (
+  name: "resize",
+  styles: $resizeStyles
+);
+
+$utilities: addUtilities($resize);
