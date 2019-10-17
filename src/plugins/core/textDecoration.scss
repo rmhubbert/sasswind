@@ -1,0 +1,22 @@
+$textDecorationTypes: (
+  "underline": "underline",
+  "line-through": "line-through",
+  "no-underline": "none"
+);
+
+$textDecorationStyles: [];
+@each $type, $value in $textDecorationTypes {
+  $style: (
+    $type: (
+      text-decoration: #{$value}
+    )
+  );
+  $textDecorationStyles: append($textDecorationStyles, $style);
+}
+
+$textDecoration: (
+  name: "textDecoration",
+  styles: $textDecorationStyles
+);
+
+$utilities: addUtilities($textDecoration);
