@@ -1,0 +1,23 @@
+$textTransformTypes: (
+  "uppercase": "uppercase",
+  "lowercase": "lowercase",
+  "capitalize": "capitalize",
+  "normal-case": "none"
+);
+
+$textTransformStyles: [];
+@each $type, $value in $textTransformTypes {
+  $style: (
+    $type: (
+      text-transform: #{$value}
+    )
+  );
+  $textTransformStyles: append($textTransformStyles, $style);
+}
+
+$textTransform: (
+  name: "textTransform",
+  styles: $textTransformStyles
+);
+
+$utilities: addUtilities($textTransform);
