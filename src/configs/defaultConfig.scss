@@ -186,6 +186,11 @@ $defaultConfig: (
       "normal": "1.5",
       "relaxed": "1.625",
       "loose": "2"
+    ),
+    listStyleType: (
+      "none": "none",
+      "disc": "disc",
+      "decimal": "decimal"
     )
   ),
   corePlugins: (),

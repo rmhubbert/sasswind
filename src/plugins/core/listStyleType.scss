@@ -1,0 +1,20 @@
+$listStyleTypeModifiers: theme("listStyleType");
+
+$listStyleTypeStyles: [];
+@if ($listStyleTypeModifiers) {
+  @each $modifier, $value in $listStyleTypeModifiers {
+    $style: (
+      "list-#{$modifier}": (
+        list-style-type: #{$value}
+      )
+    );
+    $listStyleTypeStyles: append($listStyleTypeStyles, $style);
+  }
+}
+
+$listStyleType: (
+  name: "listStyleType",
+  styles: $listStyleTypeStyles
+);
+
+$utilities: addUtilities($listStyleType);
