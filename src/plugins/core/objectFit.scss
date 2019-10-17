@@ -1,0 +1,24 @@
+$objectFitTypes: (
+  "object-contain": "contain",
+  "object-cover": "cover",
+  "object-fill": "fill",
+  "object-none": "none",
+  "object-scale-down": "scale-down"
+);
+
+$objectFitStyles: [];
+@each $type, $value in $objectFitTypes {
+  $style: (
+    $type: (
+      object-fit: #{$value}
+    )
+  );
+  $objectFitStyles: append($objectFitStyles, $style);
+}
+
+$objectFit: (
+  name: "objectFit",
+  styles: $objectFitStyles
+);
+
+$utilities: addUtilities($objectFit);
