@@ -1,0 +1,24 @@
+$positionTypes: (
+  "static": "static",
+  "fixed": "fixed",
+  "absolute": "absolute",
+  "relative": "relative",
+  "sticky": "sticky"
+);
+
+$positionStyles: [];
+@each $type, $value in $positionTypes {
+  $style: (
+    $type: (
+      position: #{$value}
+    )
+  );
+  $positionStyles: append($positionStyles, $style);
+}
+
+$position: (
+  name: "position",
+  styles: $positionStyles
+);
+
+$utilities: addUtilities($position);
