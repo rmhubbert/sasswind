@@ -1,0 +1,20 @@
+$zIndexModifiers: theme("zIndex");
+
+$zIndexStyles: [];
+@if ($zIndexModifiers) {
+  @each $modifier, $value in $zIndexModifiers {
+    $style: (
+      "z-#{$modifier}": (
+        z-index: #{$value}
+      )
+    );
+    $zIndexStyles: append($zIndexStyles, $style);
+  }
+}
+
+$zIndex: (
+  name: "zIndex",
+  styles: $zIndexStyles
+);
+
+$utilities: addUtilities($zIndex);
