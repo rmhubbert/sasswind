@@ -1,0 +1,25 @@
+$justifyContentTypes: (
+  "justify-start": "flex-start",
+  "justify-end": "flex-end",
+  "justify-center": "center",
+  "justify-between": "space-between",
+  "justify-around": "space-around",
+  "justify-evenly": "space-evenly"
+);
+
+$justifyContentStyles: [];
+@each $type, $value in $justifyContentTypes {
+  $style: (
+    $type: (
+      justify-content: #{$value}
+    )
+  );
+  $justifyContentStyles: append($justifyContentStyles, $style);
+}
+
+$justifyContent: (
+  name: "justifyContent",
+  styles: $justifyContentStyles
+);
+
+$utilities: addUtilities($justifyContent);
