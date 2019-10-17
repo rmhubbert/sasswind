@@ -1,0 +1,95 @@
+$insetModifiers: theme("inset");
+
+$insetStyles: [];
+@if ($insetModifiers) {
+  @each $modifier, $value in $insetModifiers {
+    @if ($modifier == "auto") {
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "inset-#{$modifier}": (
+            top: #{$value},
+            bottom: #{$value},
+            left: #{$value},
+            right: #{$value}
+          )
+        )
+      );
+    } @else {
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "inset-#{$modifier}": (
+            top: #{$value},
+            bottom: #{$value},
+            left: #{$value},
+            right: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "inset-y-#{$modifier}": (
+            top: #{$value},
+            bottom: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "inset-x-#{$modifier}": (
+            left: #{$value},
+            right: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "top-#{$modifier}": (
+            top: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "right-#{$modifier}": (
+            right: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "bottom-#{$modifier}": (
+            bottom: #{$value}
+          )
+        )
+      );
+
+      $insetStyles: append(
+        $insetStyles,
+        (
+          "left-#{$modifier}": (
+            left: #{$value}
+          )
+        )
+      );
+    }
+  }
+}
+
+$inset: (
+  name: "inset",
+  styles: $insetStyles
+);
+
+$utilities: addUtilities($inset);
