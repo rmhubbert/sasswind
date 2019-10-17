@@ -1,0 +1,21 @@
+$widths: theme("width");
+$spacing: theme("spacing");
+$widths: map-merge($widths, $spacing);
+
+$widthStyles: [];
+
+@each $modifier, $value in $widths {
+  $style: (
+    "w-#{escape($modifier)}": (
+      width: #{$value}
+    )
+  );
+  $widthStyles: append($widthStyles, $style);
+}
+
+$width: (
+  name: "width",
+  styles: $widthStyles
+);
+
+$utilities: addUtilities($width);
