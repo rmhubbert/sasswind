@@ -1,0 +1,24 @@
+$placeholderColors: theme("placeholderColor");
+$colors: theme("colors");
+$colors: map-merge($colors, $placeholderColors);
+$flattenedColors: flattenColorPalette($colors);
+
+$placeholderColorStyles: [];
+@if ($flattenedColors) {
+  @each $modifier, $value in $flattenedColors {
+    $style: (
+      "placeholder-#{$modifier}": (
+        color: #{$value}
+      )
+    );
+    $placeholderColorStyles: append($placeholderColorStyles, $style);
+  }
+}
+
+$placeholderColor: (
+  name: "placeholderColor",
+  styles: $placeholderColorStyles,
+  suffix: "::placeholder"
+);
+
+$utilities: addUtilities($placeholderColor);
