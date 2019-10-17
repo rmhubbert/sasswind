@@ -1,0 +1,20 @@
+$opacityModifiers: theme("opacity");
+
+$opacityStyles: [];
+@if ($opacityModifiers) {
+  @each $modifier, $value in $opacityModifiers {
+    $style: (
+      "opacity-#{$modifier}": (
+        opacity: #{$value}
+      )
+    );
+    $opacityStyles: append($opacityStyles, $style);
+  }
+}
+
+$opacity: (
+  name: "opacity",
+  styles: $opacityStyles
+);
+
+$utilities: addUtilities($opacity);
