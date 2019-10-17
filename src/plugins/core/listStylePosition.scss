@@ -1,0 +1,21 @@
+$listStylePositionTypes: (
+  "list-inside": "inside",
+  "list-outside": "outside"
+);
+
+$listStylePositionStyles: [];
+@each $type, $value in $listStylePositionTypes {
+  $style: (
+    $type: (
+      list-style-position: #{$value}
+    )
+  );
+  $listStylePositionStyles: append($listStylePositionStyles, $style);
+}
+
+$listStylePosition: (
+  name: "listStylePosition",
+  styles: $listStylePositionStyles
+);
+
+$utilities: addUtilities($listStylePosition);
