@@ -1,0 +1,20 @@
+$minHeightModifiers: theme("minHeight");
+
+$minHeightStyles: [];
+@if ($minHeightModifiers) {
+  @each $modifier, $value in $minHeightModifiers {
+    $style: (
+      "min-h-#{$modifier}": (
+        min-height: #{$value}
+      )
+    );
+    $minHeightStyles: append($minHeightStyles, $style);
+  }
+}
+
+$minHeight: (
+  name: "minHeight",
+  styles: $minHeightStyles
+);
+
+$utilities: addUtilities($minHeight);
