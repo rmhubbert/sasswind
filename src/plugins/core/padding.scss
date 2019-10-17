@@ -1,0 +1,80 @@
+$paddings: theme("padding");
+$spacing: theme("spacing");
+$paddings: map-merge($spacing, $paddings);
+
+$paddingStyles: [];
+@if ($paddings) {
+  @each $modifier, $value in $paddings {
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "m-#{$modifier}": (
+          padding: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "my-#{$modifier}": (
+          padding-top: #{$value},
+          padding-bottom: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "mx-#{$modifier}": (
+          padding-right: #{$value},
+          padding-left: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "mt-#{$modifier}": (
+          padding-top: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "mr-#{$modifier}": (
+          padding-right: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "mb-#{$modifier}": (
+          padding-bottom: #{$value}
+        )
+      )
+    );
+
+    $paddingStyles: append(
+      $paddingStyles,
+      (
+        "ml-#{$modifier}": (
+          padding-left: #{$value}
+        )
+      )
+    );
+  }
+}
+
+$padding: (
+  name: "padding",
+  styles: $paddingStyles
+);
+
+$utilities: addUtilities($padding);
