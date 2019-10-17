@@ -194,6 +194,10 @@ $defaultConfig: (
     ),
     margin: (
       "auto": "auto"
+    ),
+    maxHeight: (
+      "full": "100%",
+      "screen": "100vh"
     )
   ),
   corePlugins: (),

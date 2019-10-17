@@ -1,0 +1,20 @@
+$maxHeightModifiers: theme("maxHeight");
+
+$maxHeightStyles: [];
+@if ($maxHeightModifiers) {
+  @each $modifier, $value in $maxHeightModifiers {
+    $style: (
+      "max-h-#{$modifier}": (
+        max-height: #{$value}
+      )
+    );
+    $maxHeightStyles: append($maxHeightStyles, $style);
+  }
+}
+
+$maxHeight: (
+  name: "maxHeight",
+  styles: $maxHeightStyles
+);
+
+$utilities: addUtilities($maxHeight);
