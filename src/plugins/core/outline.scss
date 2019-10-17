@@ -1,0 +1,12 @@
+$outlineStyles: (
+  "outline-none": (
+    outline: 0
+  )
+);
+
+$outline: (
+  name: "outline",
+  styles: [$outlineStyles]
+);
+
+$utilities: addUtilities($outline);
