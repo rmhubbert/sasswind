@@ -38,11 +38,15 @@
       @each $plugin in $value {
         $pluginName: map-get($plugin, "name");
         $pluginStyles: map-get($plugin, "styles");
+        $pluginPrefix: map-get($plugin, "prefix");
         $pluginSuffix: map-get($plugin, "suffix");
 
         @if (permittedCorePlugin($pluginName)) {
           @each $style in $pluginStyles {
             $pre: map-get($return, "prefix") + escape(config("prefix"));
+            @if ($pluginPrefix == false) {
+              $pre: "";
+            }
             @each $selector, $properties in $style {
               .#{$pre}#{$selector + $pluginSuffix} {
                 @each $property, $value in $properties {
@@ -56,6 +60,9 @@
                     $variant +
                     escape(config("separator")) +
                     escape(config("prefix"));
+                  @if ($pluginPrefix == false) {
+                    $pre: "";
+                  }
                   .#{$pre}#{$selector}:#{$variant + $pluginSuffix} {
                     @each $property, $value in $properties {
                       #{$property}: $value#{important()};

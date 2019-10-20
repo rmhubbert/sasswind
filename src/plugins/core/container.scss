@@ -61,7 +61,8 @@ $components: addComponents($container);
 
   $container: (
     name: "container",
-    styles: [$style]
+    styles: [$style],
+    prefix: false
   );
 
   $components: addComponents($container, $breakpoint);
