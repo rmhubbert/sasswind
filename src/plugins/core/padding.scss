@@ -8,7 +8,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "m-#{$modifier}": (
+        "p-#{$modifier}": (
           padding: #{$value}
         )
       )
@@ -17,7 +17,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "my-#{$modifier}": (
+        "py-#{$modifier}": (
           padding-top: #{$value},
           padding-bottom: #{$value}
         )
@@ -27,7 +27,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "mx-#{$modifier}": (
+        "px-#{$modifier}": (
           padding-right: #{$value},
           padding-left: #{$value}
         )
@@ -37,7 +37,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "mt-#{$modifier}": (
+        "pt-#{$modifier}": (
           padding-top: #{$value}
         )
       )
@@ -46,7 +46,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "mr-#{$modifier}": (
+        "pr-#{$modifier}": (
           padding-right: #{$value}
         )
       )
@@ -55,7 +55,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "mb-#{$modifier}": (
+        "pb-#{$modifier}": (
           padding-bottom: #{$value}
         )
       )
@@ -64,7 +64,7 @@ $paddingStyles: [];
     $paddingStyles: append(
       $paddingStyles,
       (
-        "ml-#{$modifier}": (
+        "pl-#{$modifier}": (
           padding-left: #{$value}
         )
       )
