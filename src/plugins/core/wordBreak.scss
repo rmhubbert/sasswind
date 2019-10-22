@@ -34,7 +34,7 @@ $wordBreakStyles: append(
     "truncate": (
       overflow: hidden,
       text-overflow: ellipsis,
-      white-space: no-wrap
+      white-space: nowrap
     )
   )
 );
