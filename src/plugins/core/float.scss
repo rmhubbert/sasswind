@@ -30,7 +30,7 @@ $floatStyles: append(
 $floatStyles: append(
   $floatStyles,
   (
-    "clearfix:after": (
+    "clearfix::after": (
       content: "",
       display: table,
       clear: both
