@@ -15,7 +15,7 @@
             }
           }
           @each $variant in getVariants($pluginName) {
-            @if ($variant != "responsive") {
+            @if (validPseudoVariant($variant)) {
               $pre: $variant +
                 escape(config("separator")) +
                 escape(config("prefix"));
@@ -55,7 +55,7 @@
               }
 
               @each $variant in getVariants($pluginName) {
-                @if ($variant != "responsive") {
+                @if (validPseudoVariant($variant)) {
                   $pre: map-get($return, "prefix") +
                     $variant +
                     escape(config("separator")) +

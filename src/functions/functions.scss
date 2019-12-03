@@ -123,6 +123,12 @@
   @return [];
 }
 
+@function validPseudoVariant($name) {
+  $validVariants: [ "hover", "focus", "active", "disabled", "visited",
+    "focus-within" ];
+  @return index($validVariants, $name) != null;
+}
+
 @function permittedCorePlugin($plugin) {
   //@return map-has-key($corePlugins, $plugin);
   @return true;
