@@ -1,3 +1,48 @@
+/// jQuery-style extend function
+/// About `map-merge()`:
+/// * only takes 2 arguments
+/// * is not recursive
+/// @param {Map} $map - first map
+/// @param {ArgList} $maps - other maps
+/// @param {Bool} $deep - recursive mode
+/// @return {Map}
+// https://www.sitepoint.com/extra-map-functions-sass/
+@function map-extend($map, $maps... /*, $deep */) {
+  $last: nth($maps, -1);
+  $deep: $last == true;
+  $max: if($deep, length($maps) - 1, length($maps));
+
+  // Loop through all maps in $maps...
+  @for $i from 1 through $max {
+    // Store current map
+    $current: nth($maps, $i);
+
+    // If not in deep mode, simply merge current map with map
+    @if not $deep {
+      $map: map-merge($map, $current);
+    } @else {
+      // If in deep mode, loop through all tuples in current map
+      @each $key, $value in $current {
+        // If value is a nested map and same key from map is a nested map as well
+        @if type-of($value) == "map" and type-of(map-get($map, $key)) == "map" {
+          // Recursive extend
+          $value: map-extend(map-get($map, $key), $value, true);
+        }
+
+        // Merge current tuple with map
+        $map: map-merge(
+          $map,
+          (
+            $key: $value
+          )
+        );
+      }
+    }
+  }
+
+  @return $map;
+}
+
 // https://css-tricks.com/snippets/sass/str-replace-function/
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
@@ -86,7 +131,7 @@
 
 @function config($targetString, $default: null) {
   $targetList: str-split($targetString, ".");
-  $next: $defaultConfig;
+  $next: $sasswindConfig;
   $value: null;
   @each $target in $targetList {
     @if (type-of($next) == map) {
@@ -129,8 +174,20 @@
   @return index($validVariants, $name) != null;
 }
 
-@function permittedCorePlugin($plugin) {
-  //@return map-has-key($corePlugins, $plugin);
+@function permittedCorePlugin($pluginName) {
+  $corePlugins: config("corePlugins");
+  @if (type-of($corePlugins) == bool) {
+    @return $corePlugins;
+  } @else if(type-of($corePlugins) == list) {
+    @return index($corePlugins, $pluginName) != null;
+  } @else if
+    (
+      (map-has-key($corePlugins, $pluginName)) and
+        (map-get($corePlugins, $pluginName) == false)
+    )
+  {
+    @return false;
+  }
   @return true;
 }
 
@@ -201,4 +258,60 @@
       "screens": $screens
     )
   );
+}
+
+@function buildConfig($config, $defaultConfig) {
+  $theme: ();
+  @if (map-has-key($config, "theme")) {
+    $theme: map-merge(
+      map-get($defaultConfig, "theme"),
+      map-get($config, "theme")
+    );
+    @if (map-has-key($theme, "extend")) {
+      $theme: map-extend($theme, map-get($theme, "extend"), true);
+    }
+  } @else {
+    $theme: map-get($defaultConfig, "theme");
+  }
+
+  $corePlugins: if(
+    map-has-key($config, "corePlugins"),
+    map-get($config, "corePlugins"),
+    map-get($defaultConfig, "corePlugins")
+  );
+
+  $variants: if(
+    map-has-key($config, "variants"),
+    map-merge(
+      map-get($defaultConfig, "variants"),
+      map-get($config, "variants")
+    ),
+    map-get($defaultConfig, "variants")
+  );
+
+  $sasswindConfig: (
+    prefix:
+      if(
+        map-has-key($config, "prefix"),
+        map-get($config, "prefix"),
+        map-get($defaultConfig, "prefix")
+      ),
+    important:
+      if(
+        map-has-key($config, "important"),
+        map-get($config, "important"),
+        map-get($defaultConfig, "important")
+      ),
+    separator:
+      if(
+        map-has-key($config, "separator"),
+        map-get($config, "separator"),
+        map-get($defaultConfig, "separator")
+      ),
+    theme: $theme,
+    corePlugins: $corePlugins,
+    variants: $variants
+  );
+
+  @return $sasswindConfig;
 }

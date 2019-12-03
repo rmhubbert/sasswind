@@ -3,9 +3,12 @@
 @import "./mixins/pseudoClass";
 @import "./mixins/responsive";
 @import "./mixins/renderPlugins";
-@import "./mixins/configVariants";
+//@import "./mixins/configVariants";
 @import "./configs/defaultConfig";
 @import "./functions/functions";
+
+$config: () !default;
+$sasswindConfig: buildConfig($config, $defaultConfig);
 
 $components: createPluginMap();
 $utilities: createPluginMap();

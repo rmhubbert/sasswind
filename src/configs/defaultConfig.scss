@@ -82,8 +82,8 @@ $defaultConfig: (
       "none": "none"
     ),
     container: (
-      center: false,
-      padding: false
+      "center": false,
+      "padding": false
     ),
     cursor: (
       "auto": "auto",
@@ -303,7 +303,7 @@ $defaultConfig: (
       "50": "50"
     )
   ),
-  corePlugins: (),
+  corePlugins: true,
   variants: (
     accessibility: [ "responsive",
     "focus" ],
