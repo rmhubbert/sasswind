@@ -4,7 +4,7 @@
   "description": "A javascript free port of tailwindcss in Sass",
   "keywords": [
     "Tailwind",
-    "tailwindcss"
+    "tailwindcss",
     "CSS",
     "Sass"
   ],
