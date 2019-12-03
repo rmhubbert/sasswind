@@ -716,6 +716,10 @@ $blue: config("theme.colors.blue.500");
 $blue: theme("colors.blue.500");
 ```
 
+## File size
+
+As with tailwindcss, the generated file size is huge. I strongly suggest that you follow the advice given [here](https://tailwindcss.com/docs/controlling-file-size/), particularly in regards to getting PurgeCSS set up and running on your production builds.
+
 ## Limitations
 
 Currently, the following pseudo element variants are unsupported.
