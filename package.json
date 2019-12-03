@@ -1,9 +1,10 @@
 {
   "name": "sasswind",
   "version": "0.1.0",
-  "description": "Sass port of the Tailwind CSS framework",
+  "description": "A javascript free port of tailwindcss in Sass",
   "keywords": [
     "Tailwind",
+    "tailwindcss"
     "CSS",
     "Sass"
   ],
