@@ -693,12 +693,21 @@ Sasswind includes a few helper mixins and functions.
 
 ### Mixins
 
-`responsive($screen)`
-Adds a media query for the passed screensize.
+`screen($screen)`
+Adds a media query for the passed screen size.
 
 ```
-@include responsive("sm") {
+@include screen(sm) {
     // your code goes here
+}
+```
+
+`apply($classes)`
+Applies the given classes to the enclosing class or id. The same restrictions apply here as in tailwindcss. No responsive or variant classes can be added.
+
+```
+.yourclass {
+  @include apply(mb-4 bg-gray-400);
 }
 ```
 
@@ -730,7 +739,7 @@ Currently, the following pseudo element variants are unsupported.
 - even-child
 - group-hover
 
-There's also no functionality to replicate the @apply directive yet.
+User defined plugins are not yet supported but will be coming soon.
 
 ## Contributing
 
