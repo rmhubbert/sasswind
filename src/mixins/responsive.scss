@@ -34,3 +34,14 @@
     @content;
   }
 }
+
+@mixin screen($screen: null) {
+  $size: theme("screens.#{$screen}");
+  @if ($size) {
+    @media only screen and (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
