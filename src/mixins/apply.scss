@@ -1,0 +1,3 @@
+@mixin apply($classList) {
+  @extend #{applyClasses($classList)};
+}

@@ -87,6 +87,17 @@
   @return $string;
 }
 
+@function applyClasses($classList) {
+  $classes: "";
+  $first: true;
+  @each $class in $classList {
+    $class: escape($class);
+    $classes: if($first, ".#{$class}", "#{$classes}, .#{$class}");
+    $first: false;
+  }
+  @return unquote($classes);
+}
+
 @function addPlugin($plugin, $sourceMap, $breakpoint: null) {
   $standard: map-get($sourceMap, "standard");
   $screens: map-get($sourceMap, "screens");
