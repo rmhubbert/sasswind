@@ -1,4 +1,4 @@
-# Sasswind SCSS
+# UNMAINTAINED: Sasswind SCSS
 
 Sasswind is a javascript free port of [tailwindcss](https://tailwindcss.com/), written entirely in [Sass](https://sass-lang.com/). It is currently based on v1.1 of tailwindcss.
 
